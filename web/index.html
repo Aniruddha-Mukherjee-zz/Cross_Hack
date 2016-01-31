@@ -15,26 +15,21 @@
       <script type="text/javascript">
           function ajaxtoservlet()
     {
-              var form_data = "Form has been submitted";
-              var flag=0;
-              //alert("boss");
              var hosp=document.getElementById("Hospital_name").value;
              var dept=document.getElementById("Department_name").value;
              var ward=document.getElementById("Ward_name").value;
-                    
-        //alert(document.getElementById("Hospital_name").value);
+                   
+             if(!hosp || !dept || !ward)  exit;
+             
+         //alert(document.getElementById("Hospital_name").value);
         //alert(document.getElementById("Department_name").value);
         //alert(document.getElementById("Ward_name").value);
         
-       if(hosp)  flag++;
-       if(dept)  flag++;
-       if(ward)  flag++;
-        
-        //alert(hosp);    
-        //alert(dept);
-        //alert(ward);
-        
-        alert("flag= "+flag);
+       alert(hosp+" "+dept+" "+ward);
+       
+       //document.getElementById("Ward_name").
+       
+        //alert("All 3 data received");
     }
       </script>
 </head>
@@ -56,8 +51,8 @@
       </div>
 <div class="row">
 <form>
-   <div class= "grey-text">Select Hospital</div>
-    <input list="Hospital_list" id="Hospital_name" required>
+   <!-- <div class= "grey-text">Select Hospital</div> -->
+    <input list="Hospital_list" id="Hospital_name" placeholder="Select Hospital" class="teal-text" required>
         <datalist id="Hospital_list" >
             <option value="Kolkata Medical College and Hospital">
             <option value="R.G.Kar Medical College and Hospital">
@@ -67,8 +62,8 @@
             <option value="Ruby General HospitalWebsiteDirections">
         </datalist> 
 
-    <div class= "grey-text">Select Department</div>
-    <input list="Department_list" id="Department_name" required>
+    <!-- <div class= "grey-text">Select Department</div> -->
+    <input list="Department_list" id="Department_name" placeholder="Select Department" class="teal-text" required>
         <datalist id="Department_list" >
             <option value= "Cardiology Institute of cardiovascular science">
             <option value= "Anatomy">
@@ -87,8 +82,8 @@
             <option value= "Chest Medicine">
         </datalist>
     
-    <div class="grey-text">Select Ward</div>
-    <input list="Ward_list" id="Ward_name" required>
+    <!-- <div class="grey-text">Select Ward</div> -->
+    <input list="Ward_list" id="Ward_name" placeholder="Select Ward" class="teal-text" required>
         <datalist id="Ward_list" >
             <option value= "Single Bed">
             <option value= "Double Bed">
