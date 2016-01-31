@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Cross Hack</title>
+    <title>Cross Hack</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,13 +15,23 @@
       <script type="text/javascript">
               function ajaxtoservlet()
         {
-               alert("Form has been submitted");
-
-        }
+              var form_data = "Form has been submitted";
+              //alert("boss");
+             //var hosp=document.getElementById("Hospital_name").value;
+             var dept=document.getElementById("Department_name").value;
+             //var ward=document.getElementById("Ward_name").value;
+            
+            //if(hospital)    result=result+"not null"; 
+            //else            result=result+"null"; 
+            
+         //alert(hosp);    
+        alert(document.getElementById("Hospital_name").value);
+        alert(dept);
+    }
       </script>
 </head>
 <body>    
-  <nav class="light-blue lighten-1" role="navigation">
+  <nav class="waves-effect waves-light btn-large" role="navigation">
     <div class="nav-wrapper container">
       <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Compatible with your device</a></li>
@@ -32,13 +42,14 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Running Bed Counter</h1>
+      <h1 class="header center dark blue-text">Running Bed Counter</h1>
       <div class="row center">
         <h5 class="header col s12 light">A brand new website to find running bed count of Hospital and Nursing Homes in Kolkata</h5>
       </div>
 <div class="row">
 <form>
-    Select Hospital: <input list="Hospital_list" name="Hospital_name" required >
+   <div class= "grey-text">Select Hospital</div>
+    <input list="Hospital_list" id="Hospital_name" required>
         <datalist id="Hospital_list" >
             <option value="Kolkata Medical College and Hospital">
             <option value="R.G.Kar Medical College and Hospital">
@@ -48,34 +59,42 @@
             <option value="Ruby General HospitalWebsiteDirections">
         </datalist> 
 
-     Select Department: <input list="Department_list" name="Department_name" required>
+    <div class= "grey-text">Select Department</div>
+    <input list="Department_list" id="Department_name" required>
         <datalist id="Department_list" >
-            <option value= "Department of cardiology Institute of cardiovascular science">
-            <option value= "Department of Anatomy">
-            <option value= "Department of Physiology">
-            <option value= "Department of Biochemistry">
-            <option value= "Department of Pharmacology">
-            <option value= "Department of Radiology">
-            <option value= "Department of Ophthalmology">
-            <option value= "Department of Oforhinology">
-            <option value= "Department of Dentistry">
-            <option value= "Department of Psychiatry">
-            <option value= "Department of Dermatology">
-            <option value= "Department of General Surgery">
-            <option value= "Department of Orthopedics">
-            <option value= "Department of General Medicine">
-            <option value= "Department of Chest Medicine">
+            <option value= "Cardiology Institute of cardiovascular science">
+            <option value= "Anatomy">
+            <option value= "Physiology">
+            <option value= "Biochemistry">
+            <option value= "Pharmacology">
+            <option value= "Radiology">
+            <option value= "Ophthalmology">
+            <option value= "Oforhinology">
+            <option value= "Dentistry">
+            <option value= "Psychiatry">
+            <option value= "Dermatology">
+            <option value= "General Surgery">
+            <option value= "Orthopedics">
+            <option value= "General Medicine">
+            <option value= "Chest Medicine">
         </datalist>
     
-    Select Ward: <input list="Ward_list" name="ward_name" required>
+    <div class="grey-text">Select Ward</div>
+    <input list="Ward_list" id="ward_name" required>
         <datalist id="Ward_list" >
             <option value= "Single Bed">
             <option value= "Double Bed">
             <option value= "General Bed">
             <option value ="Any">
         </datalist>
-    <a onClick="javascript:ajaxtoservlet();" id="download-button" class="btn-large waves-effect waves-light orange">Search</a>
-</form>
+    <button class="btn-large waves-effect waves-light" type="submit" name="action" onClick="ajaxtoservlet()">Search
+    <i class="material-icons right">send</i>
+  </button>
+    
+    <!--<a onClick="javascript:ajaxtoservlet();" id="download-button" class="waves-effect waves-light btn-large">Search</a>
+    -->
+    </form>
+    
 </div>
       <br><br>
 
@@ -124,7 +143,7 @@
     </div>
   </div>
 
-  <footer class="page-footer orange">
+  <footer class="page-footer light teal">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
