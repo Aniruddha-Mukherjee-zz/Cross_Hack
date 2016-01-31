@@ -13,20 +13,28 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
       <script type="text/javascript">
-              function ajaxtoservlet()
-        {
+          function ajaxtoservlet()
+    {
               var form_data = "Form has been submitted";
+              var flag=0;
               //alert("boss");
-             //var hosp=document.getElementById("Hospital_name").value;
+             var hosp=document.getElementById("Hospital_name").value;
              var dept=document.getElementById("Department_name").value;
-             //var ward=document.getElementById("Ward_name").value;
-            
-            //if(hospital)    result=result+"not null"; 
-            //else            result=result+"null"; 
-            
-         //alert(hosp);    
-        alert(document.getElementById("Hospital_name").value);
-        alert(dept);
+             var ward=document.getElementById("Ward_name").value;
+                    
+        //alert(document.getElementById("Hospital_name").value);
+        //alert(document.getElementById("Department_name").value);
+        //alert(document.getElementById("Ward_name").value);
+        
+       if(hosp)  flag++;
+       if(dept)  flag++;
+       if(ward)  flag++;
+        
+        //alert(hosp);    
+        //alert(dept);
+        //alert(ward);
+        
+        alert("flag= "+flag);
     }
       </script>
 </head>
@@ -80,7 +88,7 @@
         </datalist>
     
     <div class="grey-text">Select Ward</div>
-    <input list="Ward_list" id="ward_name" required>
+    <input list="Ward_list" id="Ward_name" required>
         <datalist id="Ward_list" >
             <option value= "Single Bed">
             <option value= "Double Bed">
