@@ -55,7 +55,7 @@
         
         //alert(hosp+" "+dept+" "+ward+" ");
        
-       window.open("result.jsp?hosp="+hosp+"&dept="+dept+"&ward="+ward);
+       window.open("result.jsp?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
     }
       </script>
 </head>

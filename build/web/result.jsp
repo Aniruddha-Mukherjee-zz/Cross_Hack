@@ -9,6 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         <title>Result</title>
     </head>
     <body>
@@ -22,20 +30,17 @@
             
             uri=uri+servlet_name+"?"+parameter;
             
-            //document.write(uri);
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() 
-        {
-            if (xhttp.readyState === 4 && xhttp.status === 200) 
-            {
-                    var response= xhttp.responseText;
-                    document.write("someting received");
-            }
-        };
-  xhttp.open("GET", uri, true);
-  xhttp.send();
-
+            
+            //document.write("Nothing Yet");
+            
             
         </script>
+       <div class="row">
+          <div class="div col s8 offset-s2">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+          </div>
+        </div>
     </body>
 </html>
