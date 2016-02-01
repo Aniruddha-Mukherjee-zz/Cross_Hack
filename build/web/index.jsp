@@ -11,53 +11,46 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Javascript functions  -->
+      <script src="js/index.js"></script>
 
-      <script type="text/javascript">
-          function ajaxtoservlet()
-    {
-             var hosp=document.getElementById("Hospital_name").value;
-             var dept=document.getElementById("Department_name").value;
-             var ward=document.getElementById("Ward_name").value;
-                   
-             if(!hosp || !dept || !ward)  exit;
-             
-         //alert(document.getElementById("Hospital_name").value);
-        //alert(document.getElementById("Department_name").value);
-        //alert(document.getElementById("Ward_name").value);
+      
+      <datalist id="Hospital_list" >
+            <option value="Apollo Gleneagles Hospitals, KolkataWebsiteDirections">  
+            <option value="Kolkata Medical College and Hospital">
+            <option value="R.G.Kar Medical College and Hospital">
+            <option value="Calcutta Medical Research Institute">
+            <option value="Columbia Asia Hospital - Salt Lake">
+            <option value="DESUN Hospital">
+            <option value="Ruby General Hospital">
+        </datalist> 
         
-            var flag1=false,flag2=false,flag3=false;
-            
-            var temp = document.getElementById("Hospital_list");
-              for(var i=0;i<temp.options.length;i++)
-                    if(temp.options[i].value==hosp)
-                        flag1=true;
-              
-            temp = document.getElementById("Department_list");
-              for(var i=0;i<temp.options.length;i++)
-                    if(temp.options[i].value==dept)
-                        flag2=true;
-                        
-             temp = document.getElementById("Ward_list");
-              for(var i=0;i<temp.options.length;i++)
-                    if(temp.options[i].value==ward)
-                        flag3=true;
-            
-        
-        
-       if(!flag1)           {   alert("Selected Hospital information not available.");}
-            else{
-                    if(!flag2)     {   alert("Selected Department information not available.");}
-                    else if(!flag3) {   alert("Selected Ward information not available.");}
-            } 
-                
-       if(!flag1 || !flag2 || !flag3)  exit;
-            
-        
-        //alert(hosp+" "+dept+" "+ward+" ");
-       
-       window.open("result.jsp?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
-    }
-      </script>
+        <datalist id="Department_list" >
+            <option value= "Cardiology Institute of cardiovascular science">
+            <option value= "Anatomy">
+            <option value= "Physiology">
+            <option value= "Biochemistry">
+            <option value= "Pharmacology">
+            <option value= "Radiology">
+            <option value= "Ophthalmology">
+            <option value= "Oforhinology">
+            <option value= "Dentistry">
+            <option value= "Psychiatry">
+            <option value= "Dermatology">
+            <option value= "General Surgery">
+            <option value= "Orthopedics">
+            <option value= "General Medicine">
+            <option value= "Chest Medicine">
+        </datalist>
+
+        <datalist id="Ward_list" >
+            <option value= "Single Bed">
+            <option value= "Double Bed">
+            <option value= "General Bed">
+            <option value ="Any">
+        </datalist>
+
 </head>
 <body>    
   <nav class="waves-effect waves-light btn-large" role="navigation">
@@ -79,48 +72,19 @@
 <form>
    <!-- <div class= "grey-text">Select Hospital</div> -->
     <input list="Hospital_list" id="Hospital_name" placeholder="Select Hospital" class="teal-text" required>
-        <datalist id="Hospital_list" >
-            <option value="Kolkata Medical College and Hospital">
-            <option value="R.G.Kar Medical College and Hospital">
-            <option value="Calcutta Medical Research Institute">
-            <option value="Columbia Asia Hospital - Salt Lake">
-            <option value="DESUN Hospital">
-            <option value="Ruby General Hospital">
-        </datalist> 
+        
 
     <!-- <div class= "grey-text">Select Department</div> -->
     <input list="Department_list" id="Department_name" placeholder="Select Department" class="teal-text" required>
-        <datalist id="Department_list" >
-            <option value= "Cardiology Institute of cardiovascular science">
-            <option value= "Anatomy">
-            <option value= "Physiology">
-            <option value= "Biochemistry">
-            <option value= "Pharmacology">
-            <option value= "Radiology">
-            <option value= "Ophthalmology">
-            <option value= "Oforhinology">
-            <option value= "Dentistry">
-            <option value= "Psychiatry">
-            <option value= "Dermatology">
-            <option value= "General Surgery">
-            <option value= "Orthopedics">
-            <option value= "General Medicine">
-            <option value= "Chest Medicine">
-        </datalist>
+        
     
     <!-- <div class="grey-text">Select Ward</div> -->
     <input list="Ward_list" id="Ward_name" placeholder="Select Ward" class="teal-text" required>
-        <datalist id="Ward_list" >
-            <option value= "Single Bed">
-            <option value= "Double Bed">
-            <option value= "General Bed">
-            <option value ="Any">
-        </datalist>
-    <button class="btn-large waves-effect waves-light" type="submit" name="action" onClick="ajaxtoservlet()">Search
+    <button class="btn-large waves-effect waves-light" type="submit" name="action" onClick="nextPage()">Search
     <i class="material-icons right">send</i>
   </button>
     
-    <!--<a onClick="javascript:ajaxtoservlet();" id="download-button" class="waves-effect waves-light btn-large">Search</a>
+    
     -->
     </form>
     
