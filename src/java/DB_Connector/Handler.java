@@ -5,6 +5,8 @@
  */
 package DB_Connector;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.json.simple.JSONObject;
 
 /**
@@ -32,9 +34,12 @@ public class Handler {
             String link= "http://www.medicalcollegekolkata.org/";
             int singlebed=-1,doublebed=-1,generalbed=-1;
             
+            String timestamp= new SimpleDateFormat("dd/MM/YY HH:mm:ss").format(new Date());
+            
               obj.put("status", new Boolean(status));
               obj.put("address", address);
               obj.put("link", link);
+              obj.put("timestamp",timestamp);
               
               if(ward.equals("Any")){
                   obj.put("single",singlebed );

@@ -48,8 +48,8 @@
                             {
                                 //result['address']
                                 //result['link']
-                                //alert("debugging");
-                               
+                                //result['timestamp']);
+                                //alert("debugging");                                                           
                             if(ward === "Any")
                                 {
                                     //result['single']
@@ -58,9 +58,10 @@
                                 }
                                 
                                 else {
-                                    ward=ward.substring(0,6).toLowerCase();
+                          
+                ward=ward.substring(0,6).toLowerCase();    //to adjust "Single Bed" to "single" to prepare the keyfor json search
                                     //alert(ward);
-                                    alert(result[ward]);
+                            //alert(result[ward]);
                                 }
                             }
                             
