@@ -25,22 +25,69 @@
             var str=document.URL.split('?');
             var uri=str[0];
             var parameter=str[1];
+                       
+            temp=parameter.split(/&|=/);
             
+            var hosp=temp[1];var dept=temp[3];var ward=temp[5];
+                       
             uri=uri.substring(0,uri.lastIndexOf("/"));
             
             uri=uri+servlet_name+"?"+parameter;
             
+            $.ajax({
+            url: uri,
+            datatype: 'json',
+            beforeSend :    function()
+                            {
+                               $("#loader").show();  
+                            } ,
+            
+            success: function(result, status,xhr)
+                       {                           
+                           if(result['status']===true)
+                            {
+                                //result['address']
+                                //result['link']
+                                //alert("debugging");
+                               
+                            if(ward === "Any")
+                                {
+                                    //result['single']
+                                    //result['double']
+                                    //result['general']
+                                }
+                                
+                                else {
+                                    ward=ward.substring(0,6).toLowerCase();
+                                    //alert(ward);
+                                    alert(result[ward]);
+                                }
+                            }
+                            
+                            
+                            
+                            
+                            
+                        },
+            error: function(jqXHR, textStatus, errorThrown){
+           
+                        alert(textStatus);   
+                        alert(errorThrown);
+                        }
+                                ,
+            complete: function(event,xhr,settings){
+                        //xhr.
+                       $('#loader').hide();
+                       
+                        }
+            });
             
             //document.write("Nothing Yet");
             
             
         </script>
-       <div class="row">
-          <div class="div col s8 offset-s2">
-            <div class="progress">
-                <div class="indeterminate"></div>
-            </div>
-          </div>
-        </div>
+      <button onClick="window.close();" class="btn-large waves-effect waves-light">Close</button>  
+        
+        
     </body>
 </html>

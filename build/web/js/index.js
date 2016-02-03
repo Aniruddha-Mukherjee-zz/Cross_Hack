@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 
+    $(document).ready(function(){
+        $("#loader").hide();       
+        //alert("inside function");
+    });
+    
+
     function nextPage()
     {
              var hosp=document.getElementById("Hospital_name").value;
@@ -46,5 +52,10 @@
         
         //alert(hosp+" "+dept+" "+ward+" ");
        
-       window.open("result.jsp?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
+       $("#loader").show();
+       
+       $("#searchend").hide();
+       
+        window.open("result.jsp?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
+       // window.open("/search"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
     }

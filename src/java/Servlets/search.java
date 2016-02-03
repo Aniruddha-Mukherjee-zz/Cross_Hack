@@ -5,13 +5,17 @@
  */
 package Servlets;
 
+import DB_Connector.Handler;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -58,12 +62,28 @@ public class search extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        try {
-    Thread.sleep(5000);                 //1000 milliseconds is one second.
-} catch(InterruptedException ex) {
-    Thread.currentThread().interrupt();
-}
+    try {
+            Thread.sleep(1000);                        
+
+             String hospital= request.getParameter("hosp");
+             String department=request.getParameter("dept");
+             String ward=request.getParameter("ward");
+             
+             Handler handler=new Handler(hospital,department,ward);
+             
+             JSONObject obj= handler.respond();
+            
+            
+            //String message="Standard Reply from server";
+            response.setContentType("application/json");
+            //response.setContentLength(obj.size());
+            response.getWriter().write(obj.toString());
+            
+            System.out.print(obj);
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(search.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 

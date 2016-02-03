@@ -13,6 +13,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
   <!-- Javascript functions  -->
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
       <script src="js/index.js"></script>
 
       
@@ -68,7 +72,7 @@
       <div class="row center">
         <h5 class="header col s12 light">A brand new website to find running bed count of Hospital and Nursing Homes in Kolkata</h5>
       </div>
-<div class="row">
+<div class="row" id="searchend">
 <form>
    <!-- <div class= "grey-text">Select Hospital</div> -->
     <input list="Hospital_list" id="Hospital_name" placeholder="Select Hospital" class="teal-text" required>
@@ -80,15 +84,20 @@
     
     <!-- <div class="grey-text">Select Ward</div> -->
     <input list="Ward_list" id="Ward_name" placeholder="Select Ward" class="teal-text" required>
-    <button class="btn-large waves-effect waves-light" type="submit" name="action" onClick="nextPage()">Search
-    <i class="material-icons right">send</i>
-  </button>
-    
-    
-    -->
+    <br><br>
+    <button class="btn-large waves-effect waves-light" type="button" name="action" onClick="nextPage()">Search</button>
+  
     </form>
-    
 </div>
+      
+      
+    <div  id="loader" class="row" >
+          <div class="div col s8 offset-s2">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+          </div>
+        </div>
       <br><br>
 
     </div>
@@ -162,11 +171,6 @@
     </div>
   </footer>
 
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
 
   </body>
 </html>
