@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="js/index.js"></script>
         <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -20,75 +21,44 @@
         <title>Result</title>
     </head>
     <body>
-        <script>        
-            var servlet_name="/search";
-            var str=document.URL.split('?');
-            var uri=str[0];
-            var parameter=str[1];
-                       
-            temp=parameter.split(/&|=/);
-            
-            var hosp=temp[1];var dept=temp[3];var ward=temp[5];
-                       
-            uri=uri.substring(0,uri.lastIndexOf("/"));
-            
-            uri=uri+servlet_name+"?"+parameter;
-            
-            $.ajax({
-            url: uri,
-            datatype: 'json',
-            beforeSend :    function()
-                            {
-                               $("#loader").show();  
-                            } ,
-            
-            success: function(result, status,xhr)
-                       {                           
-                           if(result['status']===true)
-                            {
-                                //result['address']
-                                //result['link']
-                                //result['timestamp']);
-                                //alert("debugging");                                                           
-                            if(ward === "Any")
-                                {
-                                    //result['single']
-                                    //result['double']
-                                    //result['general']
-                                }
-                                
-                                else {
-                          
-                ward=ward.substring(0,6).toLowerCase();    //to adjust "Single Bed" to "single" to prepare the keyfor json search
-                                    //alert(ward);
-                            //alert(result[ward]);
-                                }
-                            }
-                            
-                            
-                            
-                            
-                            
-                        },
-            error: function(jqXHR, textStatus, errorThrown){
-           
-                        alert(textStatus);   
-                        alert(errorThrown);
-                        }
-                                ,
-            complete: function(event,xhr,settings){
-                        //xhr.
-                       $('#loader').hide();
-                       
-                        }
-            });
-            
+        <script >        
             //document.write("Nothing Yet");
-            
+            ajaxtoServlet();
             
         </script>
-      <button onClick="window.close();" class="btn-large waves-effect waves-light">Close</button>  
+     
         
-        
+      <div class="container" id="resultend">
+      <div class="row center-align"  id="tier-1">
+         <h5  class= "teal-text col s4 m4 ">Hospital</h5>
+         <h5  class= "teal-text col s4 m4">Department</h5>
+         <h5  class= "teal-text col s4 m4">Ward</h5>
+      </div>  
+                 
+    <div class="row centralize" id="tier-2">
+     <div class="  col s4 m4 centralize">
+      <p class="card-panel teal lighten-3 z-depth-3 ">-1</p>
+    </div>  
+     <div class="centralize col s4 m4">
+      <p class="card-panel teal lighten-3 z-depth-3">-2</p>
+    </div>
+    <div class=" centralize col s4 m4">
+      <p class=" card-panel teal lighten-3 z-depth-3">-3</p>
+    </div>  
+        </div>
+          
+         <div class="row center-block" id="tier-3" >
+         <h5  class= "grey-text col s4 m4 ">Seats available in General Bed</h5>
+         <h5  class= "grey-text col s4 m4">Seats available in Single Bed</h5>
+         <h5  class= "grey-text col s4 m4">Seats available in Double Bed</h5> 
+      </div>  
+  
+       <div class="row" id="tier-3" >   
+    <button onClick="window.close();"class=" centralize btn-large waves-effect waves-light">Close</button>       
+        </div>
+    
+       </div>
+      
+    
     </body>
 </html>

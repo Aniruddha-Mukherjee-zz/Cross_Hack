@@ -10,6 +10,75 @@
     });
     
 
+        function ajaxtoServlet(){
+            
+            //alert("Call successful");
+             var servlet_name="/search";
+            var str=document.URL.split('?');
+            var uri=str[0];
+            var parameter=str[1];
+                       
+            temp=parameter.split(/&|=/);
+            
+            var hosp=temp[1];var dept=temp[3];var ward=temp[5];
+                       
+            uri=uri.substring(0,uri.lastIndexOf("/"));
+            
+            uri=uri+servlet_name+"?"+parameter;
+            
+            $.ajax({
+            url: uri,
+            datatype: 'json',
+            beforeSend :    function()
+                            {
+                               $("#loader").show();  
+                            } ,
+            
+            success: function(result, status,xhr)
+                       {                           
+                           if(result['status']===true)
+                            {
+                                //result['address']
+                                //result['link']
+                                //result['timestamp']);
+                                alert("debugging");                                                           
+                            if(ward === "Any")
+                                {
+                                    //result['single']
+                                    //result['double']
+                                    //result['general']
+                                }
+                                
+                                else {
+                          
+                ward=ward.substring(0,6).toLowerCase();    //to adjust "Single Bed" to "single" to prepare the keyfor json search
+                                    //alert(ward);
+                            //alert(result[ward]);
+                                }
+                            }
+                            
+                            
+                            
+                            
+                            
+                        },
+            error: function(jqXHR, textStatus, errorThrown){
+           
+                        alert(textStatus);   
+                        alert(errorThrown);
+                        }
+                                ,
+            complete: function(event,xhr,settings){
+                        //xhr.
+                       $('#loader').hide();
+                       
+                        }
+            });
+            
+           
+        }
+
+
     function nextPage()
     {
              var hosp=document.getElementById("Hospital_name").value;

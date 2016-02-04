@@ -12,3 +12,12 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+.dummy {
+    visibility: hidden;
+}
+
+.centralize{
+    display:block;
+    margin: 0 auto;
+}
