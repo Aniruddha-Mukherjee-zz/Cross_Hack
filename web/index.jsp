@@ -89,9 +89,57 @@
   
     </form>
 </div>
+  
+          
+      <div class="container " id="resultend">
+          <h1 class="header center  grey-text"> Latest Updated Result</h1>
+      <div class="row center-align"  id="tier-1">
+         <h5  class= "teal-text col s3 m4 " id="hosp-result">Hospital</h5>
+         <h5  class= "teal-text col s3 m4" id="add-result">Address</h5>
+         <h5  class= "teal-text col s3 m4" id="dept-result">Department</h5> 
+      </div>  
+     <!-- <div class="row centralize">     
+          <a class="blue-text centralize" id="link-result"href="#">Link</a>
+     </div> -->            
+    <div class="row centralize" id="tier-2">
+     <div class="col s4 m4 centralize">
+      <p class="card-panel teal lighten-3 z-depth-3" id="single-result">default</p>
+    </div>  
+     <div class="centralize col s4 m4">
+      <p class="card-panel teal lighten-3 z-depth-3" id="double-result">default</p>
+    </div>
+    <div class="centralize col s4 m4">
+      <p class="card-panel teal lighten-3 z-depth-3" id="general-result">default</p>
+    </div>  
+        </div>          
+         <div class="row center-block" id="tier-3" >
+         <h5  class= "grey-text col s4 m4 ">Seats available in Single Bed</h5>
+         <h5  class= "grey-text col s4 m4">Seats available in Double Bed</h5>
+         <h5  class= "grey-text col s4 m4">Seats available in General Bed</h5> 
+      </div>  
+  
+     
+     <div class="row">
+   <!-- <a class="blue-text centralize col s3 m4" id="link-result"href="#">Link</a> -->
+     <p class="grey-text right-align" id="timestamp-result"><i>Last updated: </i>.</p>
+     </div>
+    <!--   <div class="row" id="tier-3" >   
+    <button onClick="reverter()"class=" centralize btn-large waves-effect waves-light">Close</button>       
+        </div> -->
+    
+      <nav>
+    <div class="nav-wrapper deep-purple accent-2">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+           <li><a href="#" id="link-result">Link</a></li>
+        <li><a href="#" onclick="reverter();return false;">Close</a></li>
+      </ul>
+    </div>
+  </nav>
       
-      
-    <div  id="loader" class="row" >
+
+           </div>      
+          
+    <div  id="animation" class="row" >
           <div class="div col s8 offset-s2">
             <div class="progress">
                 <div class="indeterminate"></div>

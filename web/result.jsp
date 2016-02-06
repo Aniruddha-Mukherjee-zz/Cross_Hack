@@ -61,6 +61,15 @@
       <a class="blue-text centralize col s3 m4" id="link-result"href="#">Link</a> 
      
        </div>
+        
+        
+        <div  id="animation" class="row" >
+          <div class="div col s8 offset-s2">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+          </div>
+        </div>
       
     
     </body>

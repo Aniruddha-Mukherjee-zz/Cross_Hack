@@ -5,39 +5,46 @@
  */
 
     $(document).ready(function(){
-        $("#loader").hide();
+        $(".button-collapse").sideNav();
+        $("#animation").hide();
         $("#resultend").hide();  
         //alert("inside function");
     });
     
 
-        function ajaxtoServlet(){
+        function ajaxtoServlet(hosp,dept,ward){
             
             //alert("Call successful");
              var servlet_name="/search";
-            var str=document.URL.split('?');
-            var uri=str[0];
-            var parameter=str[1];
+            //var str=uri.split('?');
+            //var uri=str[0];
+            //var parameter=str[1];
                        
-            temp=parameter.split(/&|=/);
+            //temp=parameter.split(/&|=/);
             
-            var hosp=temp[1];var dept=temp[3];var ward=temp[5];
-                       
-            uri=uri.substring(0,uri.lastIndexOf("/"));
+            //var hosp=temp[1];var dept=temp[3];var ward=temp[5];
+                    
+              
+            //uri=uri.substring(0,uri.lastIndexOf("/"));
             
-            uri=uri+servlet_name+"?"+parameter;
+            
+            //uri=uri+servlet_name+"?"+parameter;
+            
+            var uri=document.URL+servlet_name+"?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward;            
             
             $.ajax({
             url: uri,
             datatype: 'json',
             beforeSend :    function()
                             {
-                               $("#loader").show();  
+                               //alert("executing before send");
+                                $("#animation").show();  
                             } ,
             
             success: function(result, status,xhr)
                        {                           
-                         if(result['status']===true)
+                                     $("#animation").hide();  
+                if(result['status']===true)
                             {
                               alert("result received"); 
                               //alert($("#hosp-result").text());
@@ -45,12 +52,10 @@
                              $("#dept-result").text(unescape(dept));
                              $("#add-result").text(unescape(result['address']));
                              $("#link-result").attr("href",(unescape(result['link'])));
-                             $("#link-result").text(unescape(result['link']));
-                             //$("#tier1:first child").val(ward);
-                             
-                                //result['address']
-                                //result['link']
-                                //result['timestamp']);
+                             $("#link-result").text(unescape(hosp+" website"));
+                         $("#timestamp-result").text("Last Updated : "+result['timestamp']);
+                         
+//result['timestamp']);
                                
                             if(ward === "Any")
                                 {
@@ -92,7 +97,7 @@
                                 ,
             complete: function(event,xhr,settings){
                         //xhr.
-                       $('#loader').hide();
+                       
                        
                         }
             });
@@ -100,6 +105,11 @@
            
         }
 
+
+function reverter(){
+    $("#resultend").hide();
+    $("#searchend").show();
+}
 
     function nextPage()
     {
@@ -144,10 +154,11 @@
         //alert(hosp+" "+dept+" "+ward+" ");
        
         $("#searchend").hide();
-        $("#loader").show();
+        $("#animation").show();
        
-      
        
-        window.open("result.jsp?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
+       var uri="result.jsp?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward;
+       ajaxtoServlet(hosp,dept,ward);
+        //window.open("result.jsp?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
        // window.open("/search"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
     }
