@@ -91,13 +91,18 @@
 </div>
   
           
-      <div class="container " id="resultend">
+      <div class="container" id="resultend">
           <h1 class="header center  grey-text"> Latest Updated Result</h1>
-      <div class="row center-align"  id="tier-1">
+    <!-- <div class="row center-align"  id="tier-1">
          <h5  class= "teal-text col s3 m4 " id="hosp-result">Hospital</h5>
          <h5  class= "teal-text col s3 m4" id="add-result">Address</h5>
          <h5  class= "teal-text col s3 m4" id="dept-result">Department</h5> 
-      </div>  
+      </div>    -->
+    <div class="collection"  id="tier-1">
+    <a href="javascript:void(0);" target="_blank" class="collection-item teal-text" id="hosp-result">Hospital</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="add-result">Address</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result">Department</a>
+  </div>
      <!-- <div class="row centralize">     
           <a class="blue-text centralize" id="link-result"href="#">Link</a>
      </div> -->            
@@ -130,13 +135,15 @@
       <nav>
     <div class="nav-wrapper deep-purple accent-2">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-           <li><a href="#" id="link-result">Link</a></li>
+           <!-- <li><a href="#" id="link-result">Link</a></li> -->
         <li><a href="#" onclick="reverter();return false;">Close</a></li>
       </ul>
     </div>
   </nav>
       
 
+     
+    
            </div>      
           
     <div  id="animation" class="row" >

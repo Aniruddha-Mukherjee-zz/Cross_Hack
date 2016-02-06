@@ -51,8 +51,8 @@
                              $("#hosp-result").text(unescape(hosp));
                              $("#dept-result").text(unescape(dept));
                              $("#add-result").text(unescape(result['address']));
-                             $("#link-result").attr("href",(unescape(result['link'])));
-                             $("#link-result").text(unescape(hosp+" website"));
+                             $("#hosp-result").attr("href",(unescape(result['link'])));
+                            // $("#link-result").text(unescape(hosp+" website"));
                          $("#timestamp-result").text("Last Updated : "+result['timestamp']);
                          
 //result['timestamp']);
