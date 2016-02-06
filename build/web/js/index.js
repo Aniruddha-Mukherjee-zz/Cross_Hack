@@ -46,10 +46,10 @@
                                      $("#animation").hide();  
                 if(result['status']===true)
                             {
-                              alert("result received"); 
+                              alert("Server Side Delay= 2 sec"); 
                               //alert($("#hosp-result").text());
                              $("#hosp-result").text(unescape(hosp));
-                             $("#dept-result").text(unescape(dept));
+                             $("#dept-result").text(unescape(dept)+" Department");
                              $("#add-result").text(unescape(result['address']));
                              $("#hosp-result").attr("href",(unescape(result['link'])));
                             // $("#link-result").text(unescape(hosp+" website"));
@@ -59,9 +59,12 @@
                                
                             if(ward === "Any")
                                 {
-                                    $("#single-result").text(result['single']);
-                                    $("#double-result").text(result['double']);
-                                    $("#general-result").text(result['general']);
+                                   $("#single-result").show();
+                                        $("#single-result").text("Seats available in single-bed ward :   "+result['single']);
+                                   $("#double-result").show();
+                                        $("#double-result").text("Seats available in double-bed ward :   "+result['double']);                                   
+                                   $("#general-result").show();
+                                        $("#general-result").text("Seats available in general-bed ward :   "+result['general']);
                                 }
                                 
                        else {
@@ -69,22 +72,24 @@
                 ward=ward.substring(0,unescape(ward).indexOf(" ")).toLowerCase();    //to adjust "Single Bed" to "single" to prepare the key for json search
                                  
                                 var delta =ward+"-result"; 
-                           $("#tier-2").children().each(function(){
-                              var id=$(this).children("p").attr('id');
-                               if(id!= delta)
+                           $("#tier-1").children().each(function(){
+                              //var id=$(this).children("a").attr('id');
+                              var id=$(this).attr('id');
+                              //alert("id= "+id+" scanner says "+tagScanner(id));
+                               if(id!= delta && id.search(/general|double|single/)==false)
                                    $("#"+id).hide();                                                      
                                 });
                                 
-                                $("#"+delta).text(result[ward]);
+                                $("#"+delta).text("Seats available in "+ward+"-bed ward :   "+result[ward]);
                             }
                                                       
                    $("#resultend").show();       
                   
-                               $("#tier-3").children().each(function(){
+                            /*  $("#tier-3").children().each(function(){
                           var found = $(this).text().toLowerCase().indexOf(ward.toLowerCase())>=0;
                           if(!found)
                               $(this).hide();
-                               });
+                               });  */
                    
                             
                         }
@@ -108,7 +113,11 @@
 
 function reverter(){
     $("#resultend").hide();
+    $("#Hospital_name").val('');
+    $("#Department_name").val('');
+    $("#Ward_name").val('');
     $("#searchend").show();
+    
 }
 
     function nextPage()

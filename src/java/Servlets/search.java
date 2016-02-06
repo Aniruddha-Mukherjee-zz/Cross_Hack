@@ -63,7 +63,7 @@ public class search extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     try {
-            Thread.sleep(1000);                        
+            Thread.sleep(2000);                        
 
              String hospital= request.getParameter("hosp");
              String department=request.getParameter("dept");

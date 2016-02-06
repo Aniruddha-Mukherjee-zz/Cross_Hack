@@ -102,11 +102,12 @@
     <a href="javascript:void(0);" target="_blank" class="collection-item teal-text" id="hosp-result">Hospital</a>
     <a href="javascript:void(0);" class="collection-item teal-text" id="add-result">Address</a>
     <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result">Department</a>
-  </div>
-     <!-- <div class="row centralize">     
-          <a class="blue-text centralize" id="link-result"href="#">Link</a>
-     </div> -->            
-    <div class="row centralize" id="tier-2">
+    <a href="javascript:void(0);" class="collection-item teal-text" id="single-result">default</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="double-result">default</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="general-result">default</a>
+    </div>
+    
+   <!--  <div class="row centralize" id="tier-2">
      <div class="col s4 m4 centralize">
       <p class="card-panel teal lighten-3 z-depth-3" id="single-result">default</p>
     </div>  
@@ -121,9 +122,9 @@
          <h5  class= "grey-text col s4 m4 ">Seats available in Single Bed</h5>
          <h5  class= "grey-text col s4 m4">Seats available in Double Bed</h5>
          <h5  class= "grey-text col s4 m4">Seats available in General Bed</h5> 
-      </div>  
-  
-     
+      </div>   -->
+   
+   
      <div class="row">
    <!-- <a class="blue-text centralize col s3 m4" id="link-result"href="#">Link</a> -->
      <p class="grey-text right-align" id="timestamp-result"><i>Last updated: </i>.</p>
@@ -135,7 +136,6 @@
       <nav>
     <div class="nav-wrapper deep-purple accent-2">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-           <!-- <li><a href="#" id="link-result">Link</a></li> -->
         <li><a href="#" onclick="reverter();return false;">Close</a></li>
       </ul>
     </div>
