@@ -59,18 +59,31 @@
                                     $("#general-result").text(result['general']);
                                 }
                                 
-                                else {
+                       else {
                           
-                ward=ward.substring(0,6).toLowerCase();    //to adjust "Single Bed" to "single" to prepare the keyfor json search
+                ward=ward.substring(0,unescape(ward).indexOf(" ")).toLowerCase();    //to adjust "Single Bed" to "single" to prepare the key for json search
                                  
-                                var delta = "#"+ward+"-result"; 
-                                $(delta).text(result[ward]);
-                                }
+                                var delta =ward+"-result"; 
+                           $("#tier-2").children().each(function(){
+                              var id=$(this).children("p").attr('id');
+                               if(id!= delta)
+                                   $("#"+id).hide();                                                      
+                                });
+                                
+                                $("#"+delta).text(result[ward]);
                             }
                                                       
-                   $("#resultend").show();                                         
+                   $("#resultend").show();       
+                  
+                               $("#tier-3").children().each(function(){
+                          var found = $(this).text().toLowerCase().indexOf(ward.toLowerCase())>=0;
+                          if(!found)
+                              $(this).hide();
+                               });
+                   
                             
-                        },
+                        }
+                    },
             error: function(jqXHR, textStatus, errorThrown){
            
                         alert(textStatus);   

@@ -38,14 +38,14 @@
           <a class="blue-text centralize" id="link-result"href="#">Link</a>
      </div> -->            
     <div class="row centralize" id="tier-2">
-     <div class="  col s4 m4 centralize">
+     <div class="col s4 m4 centralize">
       <p class="card-panel teal lighten-3 z-depth-3" id="single-result">default</p>
     </div>  
      <div class="centralize col s4 m4">
       <p class="card-panel teal lighten-3 z-depth-3" id="double-result">default</p>
     </div>
-    <div class=" centralize col s4 m4">
-      <p class=" card-panel teal lighten-3 z-depth-3" id="general-result">default</p>
+    <div class="centralize col s4 m4">
+      <p class="card-panel teal lighten-3 z-depth-3" id="general-result">default</p>
     </div>  
         </div>          
          <div class="row center-block" id="tier-3" >
