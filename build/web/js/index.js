@@ -5,7 +5,8 @@
  */
 
     $(document).ready(function(){
-        $("#loader").hide();       
+        $("#loader").hide();
+        $("#resultend").hide();  
         //alert("inside function");
     });
     
@@ -36,30 +37,38 @@
             
             success: function(result, status,xhr)
                        {                           
-                           if(result['status']===true)
+                         if(result['status']===true)
                             {
+                              alert("result received"); 
+                              //alert($("#hosp-result").text());
+                             $("#hosp-result").text(unescape(hosp));
+                             $("#dept-result").text(unescape(dept));
+                             $("#add-result").text(unescape(result['address']));
+                             $("#link-result").attr("href",(unescape(result['link'])));
+                             $("#link-result").text(unescape(result['link']));
+                             //$("#tier1:first child").val(ward);
+                             
                                 //result['address']
                                 //result['link']
                                 //result['timestamp']);
-                                alert("debugging");                                                           
+                               
                             if(ward === "Any")
                                 {
-                                    //result['single']
-                                    //result['double']
-                                    //result['general']
+                                    $("#single-result").text(result['single']);
+                                    $("#double-result").text(result['double']);
+                                    $("#general-result").text(result['general']);
                                 }
                                 
                                 else {
                           
                 ward=ward.substring(0,6).toLowerCase();    //to adjust "Single Bed" to "single" to prepare the keyfor json search
-                                    //alert(ward);
-                            //alert(result[ward]);
+                                 
+                                var delta = "#"+ward+"-result"; 
+                                $(delta).text(result[ward]);
                                 }
                             }
-                            
-                            
-                            
-                            
+                                                      
+                   $("#resultend").show();                                         
                             
                         },
             error: function(jqXHR, textStatus, errorThrown){
@@ -121,9 +130,10 @@
         
         //alert(hosp+" "+dept+" "+ward+" ");
        
-       $("#loader").show();
+        $("#searchend").hide();
+        $("#loader").show();
        
-       $("#searchend").hide();
+      
        
         window.open("result.jsp?"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);
        // window.open("/search"+"hosp="+hosp+"&dept="+dept+"&ward="+ward);

@@ -30,33 +30,36 @@
         
       <div class="container" id="resultend">
       <div class="row center-align"  id="tier-1">
-         <h5  class= "teal-text col s4 m4 ">Hospital</h5>
-         <h5  class= "teal-text col s4 m4">Department</h5>
-         <h5  class= "teal-text col s4 m4">Ward</h5>
+         <h5  class= "teal-text col s3 m4 " id="hosp-result">Hospital</h5>
+         <h5  class= "teal-text col s3 m4" id="add-result">Address</h5>
+         <h5  class= "teal-text col s3 m4" id="dept-result">Department</h5> 
       </div>  
-                 
+     <!-- <div class="row centralize">     
+          <a class="blue-text centralize" id="link-result"href="#">Link</a>
+     </div> -->            
     <div class="row centralize" id="tier-2">
      <div class="  col s4 m4 centralize">
-      <p class="card-panel teal lighten-3 z-depth-3 ">-1</p>
+      <p class="card-panel teal lighten-3 z-depth-3" id="single-result">default</p>
     </div>  
      <div class="centralize col s4 m4">
-      <p class="card-panel teal lighten-3 z-depth-3">-2</p>
+      <p class="card-panel teal lighten-3 z-depth-3" id="double-result">default</p>
     </div>
     <div class=" centralize col s4 m4">
-      <p class=" card-panel teal lighten-3 z-depth-3">-3</p>
+      <p class=" card-panel teal lighten-3 z-depth-3" id="general-result">default</p>
     </div>  
-        </div>
-          
+        </div>          
          <div class="row center-block" id="tier-3" >
-         <h5  class= "grey-text col s4 m4 ">Seats available in General Bed</h5>
-         <h5  class= "grey-text col s4 m4">Seats available in Single Bed</h5>
-         <h5  class= "grey-text col s4 m4">Seats available in Double Bed</h5> 
+         <h5  class= "grey-text col s4 m4 ">Seats available in Single Bed</h5>
+         <h5  class= "grey-text col s4 m4">Seats available in Double Bed</h5>
+         <h5  class= "grey-text col s4 m4">Seats available in General Bed</h5> 
       </div>  
   
        <div class="row" id="tier-3" >   
     <button onClick="window.close();"class=" centralize btn-large waves-effect waves-light">Close</button>       
         </div>
     
+      <a class="blue-text centralize col s3 m4" id="link-result"href="#">Link</a> 
+     
        </div>
       
     

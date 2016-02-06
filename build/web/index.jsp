@@ -21,7 +21,7 @@
 
       
       <datalist id="Hospital_list" >
-            <option value="Apollo Gleneagles Hospitals, KolkataWebsiteDirections">  
+            <option value="Apollo Gleneagles Hospitals">  
             <option value="Kolkata Medical College and Hospital">
             <option value="R.G.Kar Medical College and Hospital">
             <option value="Calcutta Medical Research Institute">
