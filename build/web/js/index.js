@@ -14,7 +14,7 @@
 
         function ajaxtoServlet(hosp,dept,ward){
             
-            //alert("Call successful");
+            var start_time=new Date().getTime();
              var servlet_name="/search";
             //var str=uri.split('?');
             //var uri=str[0];
@@ -46,8 +46,8 @@
                                      $("#animation").hide();  
                 if(result['status']===true)
                             {
-                              alert("Server Side Delay= 2 sec"); 
-                              //alert($("#hosp-result").text());
+                            var timeDiff=(new Date().getTime()-start_time)/1000;          
+                              alert("Server Side Delay= "+timeDiff+" sec"); 
                              $("#hosp-result").text(unescape(hosp));
                              $("#dept-result").text(unescape(dept)+" Department");
                              $("#add-result").text(unescape(result['address']));
@@ -83,7 +83,8 @@
                                 $("#"+delta).text("Seats available in "+ward+"-bed ward :   "+result[ward]);
                             }
                                                       
-                   $("#resultend").show();       
+                   $("#resultend").show();
+                   $(".button-collapse").sideNav();
                   
                             /*  $("#tier-3").children().each(function(){
                           var found = $(this).text().toLowerCase().indexOf(ward.toLowerCase())>=0;
@@ -112,11 +113,12 @@
 
 
 function reverter(){
-    $("#resultend").hide();
+    /*$("#resultend").hide();
     $("#Hospital_name").val('');
     $("#Department_name").val('');
     $("#Ward_name").val('');
-    $("#searchend").show();
+    $("#searchend").show();*/
+    location.reload(false);
     
 }
 

@@ -57,14 +57,14 @@
 
 </head>
 <body>    
-  <nav class="waves-effect waves-light btn-large" role="navigation">
+   <nav class="waves-effect waves-light btn-large" role="navigation">
     <div class="nav-wrapper container">
-      <ul id="nav-mobile" class="side-nav">
+      <!-- <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Compatible with your device</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </ul> 
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
     </div>
-  </nav>
+  </nav> 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
@@ -106,45 +106,25 @@
     <a href="javascript:void(0);" class="collection-item teal-text" id="double-result">default</a>
     <a href="javascript:void(0);" class="collection-item teal-text" id="general-result">default</a>
     </div>
-    
-   <!--  <div class="row centralize" id="tier-2">
-     <div class="col s4 m4 centralize">
-      <p class="card-panel teal lighten-3 z-depth-3" id="single-result">default</p>
-    </div>  
-     <div class="centralize col s4 m4">
-      <p class="card-panel teal lighten-3 z-depth-3" id="double-result">default</p>
-    </div>
-    <div class="centralize col s4 m4">
-      <p class="card-panel teal lighten-3 z-depth-3" id="general-result">default</p>
-    </div>  
-        </div>          
-         <div class="row center-block" id="tier-3" >
-         <h5  class= "grey-text col s4 m4 ">Seats available in Single Bed</h5>
-         <h5  class= "grey-text col s4 m4">Seats available in Double Bed</h5>
-         <h5  class= "grey-text col s4 m4">Seats available in General Bed</h5> 
-      </div>   -->
-   
-   
      <div class="row">
-   <!-- <a class="blue-text centralize col s3 m4" id="link-result"href="#">Link</a> -->
-     <p class="grey-text right-align" id="timestamp-result"><i>Last updated: </i>.</p>
+        <p class="grey-text right-align" id="timestamp-result"><i>Last updated: </i>.</p>
      </div>
-    <!--   <div class="row" id="tier-3" >   
-    <button onClick="reverter()"class=" centralize btn-large waves-effect waves-light">Close</button>       
-        </div> -->
     
-      <nav>
-    <div class="nav-wrapper deep-purple accent-2">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <nav>             
+          <div class="nav-wrapper deep-purple accent-2">
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            
+      <ul class="right hide-on-med-and-down">
         <li><a href="#" onclick="reverter();return false;">Close</a></li>
       </ul>
+        
+      <ul class="side-nav" id="mobile-demo">
+          <li><a href="#" onclick="reverter();return false;">Close</a></li>
+      </ul>        
     </div>
   </nav>
-      
-
-     
-    
-           </div>      
+             
+      </div>      
           
     <div  id="animation" class="row" >
           <div class="div col s8 offset-s2">
