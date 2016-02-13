@@ -72,24 +72,64 @@
       <div class="row center">
         <h5 class="header col s12 light">A brand new website to find running bed count of Hospital and Nursing Homes in Kolkata</h5>
       </div>
-<div class="row" id="searchend">
-<form>
-   <!-- <div class= "grey-text">Select Hospital</div> -->
+
+     
+   <nav class="row">
+    <div class="nav-wrapper">
+      <div class="col s12 " id="navigator">
+        <a href="javascript:void(0);" class="breadcrumb" id="first-BC">Step 1</a>
+      </div>
+    </div>
+  </nav>
+          
+                <br><br>
+
+      <div class="row" id="searchend">
+    <form id="search1">
+   
     <input list="Hospital_list" id="Hospital_name" placeholder="Select Hospital" class="teal-text" required>
         
 
-    <!-- <div class= "grey-text">Select Department</div> -->
+    
     <input list="Department_list" id="Department_name" placeholder="Select Department" class="teal-text" required>
         
+    <!-- <input list="Ward_list" id="Ward_name" placeholder="Select Ward" class="teal-text" required> -->
     
-    <!-- <div class="grey-text">Select Ward</div> -->
-    <input list="Ward_list" id="Ward_name" placeholder="Select Ward" class="teal-text" required>
     <br><br>
-    <button class="btn-large waves-effect waves-light" type="button" name="action" onClick="nextPage()">Search</button>
+    <button class="btn-large waves-effect waves-light" type="button" onClick="nextSearch()">Next<i class="material-icons right">send</i></button>
   
-    </form>
+    </form>  
+          
+          <div class="container"  id="search2">
+      <div class="input-field col s12 teal-text">
+    <select id="Ward_name">
+      <option value="" disabled selected>Select Bedding Type</option>
+      <option value="Single Bed">Single Bed</option>
+      <option value="Double Bed">Double Bed</option>
+      <option value="General Bed">General Bed</option>
+      <option value="Any">Any</option>
+    </select> 
+      </div>
+              
+       <div class="input-field col s12 teal-text">
+    <select id="Gender">
+      <option value="" disabled selected>Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select> 
+      </div>
+              <br><br><br>
+    <!-- <div class="row">           -->
+      <!-- <button class="btn-large waves-effect waves-light left" type="button" name="action" onClick="reverter()"><i class="large material-icons" left>navigate_before</i></button> -->
+    <button class="btn-large waves-effect waves-light centralize" type="button" name="action" onClick="nextPage()">Search<i class="material-icons right">send</i></button>
+  </div>
+   <!-- </div> -->
 </div>
   
+      
+         
+
+
           
       <div class="container" id="resultend">
           <h1 class="header center  grey-text"> Latest Updated Result</h1>

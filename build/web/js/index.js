@@ -8,12 +8,18 @@
  
 
     $(document).ready(function(){
+        $('select').material_select();
         $(".button-collapse").sideNav();
+        $("#search2").hide();
+        
         $("#animation").hide();
         $("#resultend").hide();  
         $("#single-result").click(function(){redirector("single");});
         $("#double-result").click(function(){redirector("double");});
         $("#general-result").click(function(){redirector("general");});
+        $("#first-BC").click(function(){reverter();});
+        //$("#second-BC").click(function(){nextSearch();});
+        $("#second-BC").on('click', 'someLinkSelector', function(){nextSearch(); });
         //alert("inside function");
     });
     
@@ -60,6 +66,10 @@
             success: function(result, status,xhr)
                        {                           
                                      $("#animation").hide();  
+                                     
+     var third="<a href=\"javascript:void(0);\" class=\"breadcrumb\" id=\"third-BC\">Result</a>";
+     $("#navigator").append(third);  
+                   
                 if(result['status']===true)
                             {
                             var timeDiff=(new Date().getTime()-start_time)/1000;          
@@ -106,14 +116,10 @@
                                                       
                    $("#resultend").show();
                    $(".button-collapse").sideNav();
+              
+     
                   
-                            /*  $("#tier-3").children().each(function(){
-                          var found = $(this).text().toLowerCase().indexOf(ward.toLowerCase())>=0;
-                          if(!found)
-                              $(this).hide();
-                               });  */
-                   
-                            
+                    
                         }
                     },
             error: function(jqXHR, textStatus, errorThrown){
@@ -143,15 +149,30 @@ function reverter(){
     
 }
 
+function nextSearch(){
+    alert("nextsearch called");
+    $("#search1").hide();
+    $("#resultend").hide();
+    var second="<a href=\"javascript:void(0);\" class=\"breadcrumb\" id=\"second-BC\">Step 2</a>";
+    $("#navigator").append(second);
+    //$("#navigator").children.each(function(){
+    //    alert($this.val());
+    //});
+    
+    $("#search2").show();
+    
+}
+
     function nextPage()
     {
-             var hosp=document.getElementById("Hospital_name").value;
-             var dept=document.getElementById("Department_name").value;
-             var ward=document.getElementById("Ward_name").value;
-                   
+             //alert("call forwarded to nextPage()");
+             var hosp=$("#Hospital_name").val();
+             var dept=$("#Department_name").val();
+             var ward=$("#Ward_name").val();
+             
              if(!hosp || !dept || !ward)  exit;
              
-         //alert(document.getElementById("Hospital_name").value);
+        //alert(document.getElementById("Hospital_name").value);
         //alert(document.getElementById("Department_name").value);
         //alert(document.getElementById("Ward_name").value);
         
