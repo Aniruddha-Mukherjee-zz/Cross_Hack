@@ -99,9 +99,9 @@
          <h5  class= "teal-text col s3 m4" id="dept-result">Department</h5> 
       </div>    -->
     <div class="collection"  id="tier-1">
-    <a href="javascript:void(0);" target="_blank" class="collection-item teal-text" id="hosp-result">Hospital</a>
+    <a href="javascript:void(0);" target="_blank" class="collection-item" id="hosp-result">Hospital</a>
     <a href="javascript:void(0);" class="collection-item teal-text" id="add-result">Address</a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result">Department</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result">Department<span class="badge">1</span></a>
     <a href="javascript:void(0);" class="collection-item teal-text" id="single-result">default</a>
     <a href="javascript:void(0);" class="collection-item teal-text" id="double-result">default</a>
     <a href="javascript:void(0);" class="collection-item teal-text" id="general-result">default</a>
@@ -109,6 +109,8 @@
      <div class="row">
         <p class="grey-text right-align" id="timestamp-result"><i>Last updated: </i>.</p>
      </div>
+    
+    
     
       <nav>             
           <div class="nav-wrapper deep-purple accent-2">
@@ -125,7 +127,9 @@
   </nav>
              
       </div>      
-          
+      
+      
+      
     <div  id="animation" class="row" >
           <div class="div col s8 offset-s2">
             <div class="progress">
@@ -175,9 +179,6 @@
     </div>
     <br><br>
 
-    <div class="section">
-
-    </div>
   </div>
 
   <footer class="page-footer light teal">

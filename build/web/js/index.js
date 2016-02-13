@@ -4,13 +4,29 @@
  * and open the template in the editor.
  */
 
+
+ 
+
     $(document).ready(function(){
         $(".button-collapse").sideNav();
         $("#animation").hide();
         $("#resultend").hide();  
+        $("#single-result").click(function(){redirector("single");});
+        $("#double-result").click(function(){redirector("double");});
+        $("#general-result").click(function(){redirector("general");});
         //alert("inside function");
     });
     
+    function redirector(ward){
+        //if(ward ==="single")
+        {
+            alert("You Will Be Redirected Now");
+             var url="Booking.jsp?ward="+ward;
+             var win = window.open(url, '_blank');
+             win.focus();
+        }
+        
+    }
 
         function ajaxtoServlet(hosp,dept,ward){
             
@@ -56,16 +72,20 @@
                          $("#timestamp-result").text("Last Updated : "+result['timestamp']);
                          
 //result['timestamp']);
-                               
+                          var BOOK="<span class= \"badge red-text text-darken-1\">BOOK NOW</span>";     
                             if(ward === "Any")
                                 {
-                                   $("#single-result").show();
-                                        $("#single-result").text("Seats available in single-bed ward :   "+result['single']);
-                                   $("#double-result").show();
-                                        $("#double-result").text("Seats available in double-bed ward :   "+result['double']);                                   
-                                   $("#general-result").show();
-                                        $("#general-result").text("Seats available in general-bed ward :   "+result['general']);
-                                }
+                        $("#single-result").text("Single-bed :  "+result['single']+" seats");           
+                        $("#single-result").show();$("#single-result").append(BOOK);
+                                   
+                        $("#double-result").text("Double-bed :  "+result['double']+" seats");                                   
+                        $("#double-result").show();$("#double-result").append(BOOK);          
+                        
+                        
+                        $("#general-result").text("General-bed ward :   "+result['general']+" seats");
+                        $("#general-result").show();$("#general-result").append(BOOK);          
+                    
+                    }
                                 
                        else {
                           
@@ -80,7 +100,8 @@
                                    $("#"+id).hide();                                                      
                                 });
                                 
-                                $("#"+delta).text("Seats available in "+ward+"-bed ward :   "+result[ward]);
+                                $("#"+delta).text(ward.charAt(0).toUpperCase() + ward.slice(1)+"-bed :  "+result[ward]+" seats");
+                                $("#"+delta).append(BOOK);
                             }
                                                       
                    $("#resultend").show();
