@@ -58,16 +58,16 @@
 </head>
 <body>    
    <nav class="waves-effect waves-light btn-large" role="navigation">
-    <div class="nav-wrapper container">
-      <!-- <ul id="nav-mobile" class="side-nav">
+    <!-- <div class="nav-wrapper container">
+      <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Compatible with your device</a></li>
       </ul> 
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
-    </div>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> 
+    </div> -->
   </nav> 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <br><br>
+      <!-- <br><br> -->
       <h1 class="header center dark blue-text">Running Bed Counter</h1>
       <div class="row center">
         <h5 class="header col s12 light">A brand new website to find running bed count of Hospital and Nursing Homes in Kolkata</h5>
@@ -81,8 +81,7 @@
       </div>
     </div>
   </nav>
-          
-                <br><br>
+                       <br>
 
       <div class="row" id="searchend">
     <form id="search1">
@@ -96,7 +95,7 @@
     <!-- <input list="Ward_list" id="Ward_name" placeholder="Select Ward" class="teal-text" required> -->
     
     <br><br>
-    <button class="btn-large waves-effect waves-light" type="button" onClick="nextSearch()">Next<i class="material-icons right">send</i></button>
+    <button class="btn-large waves-effect waves-light" type="button" id="nextSearch">Next<i class="material-icons right">send</i></button>
   
     </form>  
           

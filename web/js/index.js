@@ -14,12 +14,13 @@
         
         $("#animation").hide();
         $("#resultend").hide();  
+        $("#nextSearch").click(function(){nextSearch("create")});
         $("#single-result").click(function(){redirector("single");});
         $("#double-result").click(function(){redirector("double");});
         $("#general-result").click(function(){redirector("general");});
         $("#first-BC").click(function(){reverter();});
         //$("#second-BC").click(function(){nextSearch();});
-        $("#second-BC").on('click', 'someLinkSelector', function(){nextSearch(); });
+        $(document).on('click', "#second-BC", function(){nextSearch("delete"); });
         //alert("inside function");
     });
     
@@ -149,34 +150,15 @@ function reverter(){
     
 }
 
-function nextSearch(){
-    alert("nextsearch called");
-    $("#search1").hide();
-    $("#resultend").hide();
-    var second="<a href=\"javascript:void(0);\" class=\"breadcrumb\" id=\"second-BC\">Step 2</a>";
-    $("#navigator").append(second);
-    //$("#navigator").children.each(function(){
-    //    alert($this.val());
-    //});
-    
-    $("#search2").show();
-    
-}
-
-    function nextPage()
-    {
-             //alert("call forwarded to nextPage()");
-             var hosp=$("#Hospital_name").val();
-             var dept=$("#Department_name").val();
-             var ward=$("#Ward_name").val();
-             
-             if(!hosp || !dept || !ward)  exit;
-             
-        //alert(document.getElementById("Hospital_name").value);
-        //alert(document.getElementById("Department_name").value);
-        //alert(document.getElementById("Ward_name").value);
-        
-            var flag1=false,flag2=false,flag3=false;
+function validator(){
+    var hosp=$("#Hospital_name").val();
+    var dept=$("#Department_name").val();
+     if(!hosp || !dept)  {
+        alert("No input"); 
+        return false;
+     }
+     
+              var flag1=false,flag2=false;
             
             var temp = document.getElementById("Hospital_list");
               for(var i=0;i<temp.options.length;i++)
@@ -188,20 +170,67 @@ function nextSearch(){
                     if(temp.options[i].value==dept)
                         flag2=true;
                         
-             temp = document.getElementById("Ward_list");
-              for(var i=0;i<temp.options.length;i++)
-                    if(temp.options[i].value==ward)
-                        flag3=true;
-            
+             
         
         
        if(!flag1)           {   alert("Selected Hospital information not available.");}
             else{
                     if(!flag2)     {   alert("Selected Department information not available.");}
-                    else if(!flag3) {   alert("Selected Ward information not available.");}
             } 
                 
-       if(!flag1 || !flag2 || !flag3)  exit;
+       if(!flag1 || !flag2 )  return false;
+       
+       return true;
+   
+}
+
+function nextSearch(warning){
+    //alert("nextsearch called");
+    
+     if(!validator()){
+         exit;
+     }
+    
+    $("#search1").hide();
+    $("#resultend").hide();
+    
+    
+    
+    if(warning === "create")
+    {
+        var second="<a href=\"javascript:void(0);\" class=\"breadcrumb\" id=\"second-BC\">Step 2</a>";
+        $("#navigator").append(second);
+    }
+    
+    else{
+            $("#third-BC").remove();
+            $("#resultend").hide();
+            $("#searchend").show();
+    }
+        
+    $("#search2").show();
+    
+    //alert("what ??");
+    
+}
+
+    function nextPage()
+    {
+             //alert("call forwarded to nextPage()");
+             var hosp=$("#Hospital_name").val();
+             var dept=$("#Department_name").val();
+             var ward=$("#Ward_name").val();
+             var gender=$("#Gender").val();
+             
+             if(!gender || !ward){
+                 alert("Select from list");
+                    exit;
+             }
+             
+        //alert(document.getElementById("Hospital_name").value);
+        //alert(document.getElementById("Department_name").value);
+        //alert(document.getElementById("Ward_name").value);
+        
             
         
         //alert(hosp+" "+dept+" "+ward+" ");
