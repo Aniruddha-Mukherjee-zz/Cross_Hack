@@ -14,21 +14,56 @@
         
         $("#animation").hide();
         $("#resultend").hide();  
+        $("#confirmation").hide();  
+        
         $("#nextSearch").click(function(){nextSearch("create")});
-        $("#single-result").click(function(){redirector("single");});
-        $("#double-result").click(function(){redirector("double");});
-        $("#general-result").click(function(){redirector("general");});
-        $("#first-BC").click(function(){reverter();});
+        $("#Children-result").click(function(){confirm("start","Children");});
+        $("#Cabin-result").click(function(){confirm("start","Cabin");});
+        $("#General-result").click(function(){confirm("start","General");});
+        //$("#first-BC").click(function(){reverter();});
         //$("#second-BC").click(function(){nextSearch();});
-        $(document).on('click', "#second-BC", function(){nextSearch("delete"); });
+        //$(document).on('click', "#second-BC", function(){nextSearch("delete"); });
         //alert("inside function");
+        $("#disagree").click(function(){confirm("no","");});
+         $("#agree").click(function(){confirm("yes","");});
     });
     
-    function redirector(ward){
-        //if(ward ==="single")
+    
+    function confirm(arg,ward)
+    {
+        
+        //alert(arg);
+        if(arg=== "start")
+        {
+            var second="<a href=\"javascript:void(0);\" class=\"breadcrumb\" id=\"confirm-BC\">Confirmation</a>";
+        $("#navigator").append(second);
+            $("#resultend").hide();
+            $("#confirmation").show();
+            global_ward=ward;
+        }
+    
+    else if(arg=== "yes"){
+        redirector();        
+    }
+    
+    else if(arg=== "no"){
+            $("#resultend").show();
+            $("#confirmation").hide();
+            $("#confirm-BC").remove();
+    }
+}
+    
+    function redirector(){
+        
+        //if(ward ==="Children")
         {
             alert("You Will Be Redirected Now");
-             var url="Booking.jsp?ward="+ward;
+            var hosp=$("#Hospital_name").val();
+             var dept=$("#Department_name").val();
+             var gender=$("#Gender").val();
+             var ward=$("#Ward_name").val();
+             
+             var url="Booking.jsp?hosp="+hosp+"&dept="+dept+"&gender="+gender+"&ward="+global_ward;
              var win = window.open(url, '_blank');
              win.focus();
         }
@@ -70,10 +105,8 @@
                                      
      var third="<a href=\"javascript:void(0);\" class=\"breadcrumb\" id=\"third-BC\">Result</a>";
      $("#navigator").append(third);  
-                   
-                if(result['status']===true)
-                            {
-                            var timeDiff=(new Date().getTime()-start_time)/1000;          
+                    
+                var timeDiff=(new Date().getTime()-start_time)/1000;          
                               alert("Server Side Delay= "+timeDiff+" sec"); 
                              $("#hosp-result").text(unescape(hosp));
                              $("#dept-result").text(unescape(dept)+" Department");
@@ -82,46 +115,114 @@
                             // $("#link-result").text(unescape(hosp+" website"));
                          $("#timestamp-result").text("Last Updated : "+result['timestamp']);
                          
+            
+                 {
+                          //PaidBed
+                    //alert("in paid bed");    
+                    //$("#tier-2").hide();
 //result['timestamp']);
-                          var BOOK="<span class= \"badge red-text text-darken-1\">BOOK NOW</span>";     
-                            if(ward === "Any")
+                var BOOK="<span class= \"badge red-text text-darken-1\">BOOK NOW</span>";     
+                       if(ward === "Any")
                                 {
-                        $("#single-result").text("Single-bed :  "+result['single']+" seats");           
-                        $("#single-result").show();$("#single-result").append(BOOK);
+                        $("#Children-result").text("Children-bed :  "+result['Children']+" seats");           
+                        $("#Children-result").show();$("#Children-result").append(BOOK);
                                    
-                        $("#double-result").text("Double-bed :  "+result['double']+" seats");                                   
-                        $("#double-result").show();$("#double-result").append(BOOK);          
+                        $("#Cabin-result").text("Cabin-bed :  "+result['Cabin']+" seats");                                   
+                        $("#Cabin-result").show();$("#Cabin-result").append(BOOK);          
                         
                         
-                        $("#general-result").text("General-bed ward :   "+result['general']+" seats");
-                        $("#general-result").show();$("#general-result").append(BOOK);          
+                        $("#General-result").text("General-bed ward :   "+result['General']+" seats");
+                        $("#General-result").show();$("#General-result").append(BOOK);          
                     
                     }
                                 
                        else {
                           
-                ward=ward.substring(0,unescape(ward).indexOf(" ")).toLowerCase();    //to adjust "Single Bed" to "single" to prepare the key for json search
+                ward=ward.substring(0,unescape(ward).indexOf(" ")).toLowerCase();    //to adjust "Children Bed" to "Children" to prepare the key for json search
                                  
-                                var delta =ward+"-result"; 
+                                var delta =ward.charAt(0).toUpperCase() + ward.slice(1)+"-result"; 
                            $("#tier-1").children().each(function(){
                               //var id=$(this).children("a").attr('id');
                               var id=$(this).attr('id');
                               //alert("id= "+id+" scanner says "+tagScanner(id));
-                               if(id!= delta && id.search(/general|double|single/)==false)
+                              
+                               if(id!= delta && id.search(/General|Cabin|Children/)==false)
                                    $("#"+id).hide();                                                      
                                 });
-                                
-                                $("#"+delta).text(ward.charAt(0).toUpperCase() + ward.slice(1)+"-bed :  "+result[ward]+" seats");
+                        //alert("ward="+ward); 
+                        ward=ward.charAt(0).toUpperCase() + ward.slice(1);
+                        
+                                $("#"+delta).text(ward+"-bed :  "+result[ward]+" seats");
                                 $("#"+delta).append(BOOK);
                             }
-                                                      
-                   $("#resultend").show();
-                   $(".button-collapse").sideNav();
+                  // $("#confirm-BC").remove();                                   
+                  // $("#resultend").show();
+                  // $(".button-collapse").sideNav();
               
      
                   
                     
                         }
+                
+                if(result['status']=== false)
+                {
+                    
+                  //  alert("debug"); 
+                    //$("#tier-2").show();
+                        //freeBed
+           
+                       if(ward === "Any")
+                                {
+                        $("#Childrenfree-result").text("Children-bed :  "+result['Children']+" seats");           
+                        $("#Childrenfree-result").show();
+                                   
+                        $("#Cabinfree-result").text("Cabin-bed :  "+result['Cabin']+" seats");                                   
+                        $("#Cabinfree-result").show();
+                        
+                        
+                        $("#Generalfree-result").text("General-bed ward :   "+result['General']+" seats");
+                        $("#Generalfree-result").show();//$("#General-result").append(BOOK);          
+                    
+                    }
+                                
+                       else {
+                          
+               
+          
+                        //ward=ward.substring(0,unescape(ward).indexOf(" ")).toLowerCase();    //to adjust "Children Bed" to "Children" to prepare the key for json search
+               
+               
+                var temp=ward.charAt(0).toUpperCase() + ward.slice(1);  
+                ward=temp;
+                //string.charAt(0).toUpperCase() + string.slice(1)
+               
+                
+               var delta =ward+"free-result"; 
+                                
+                                
+                           $("#tier-2").children().each(function(){
+                              //var id=$(this).children("a").attr('id');
+                              var id=$(this).attr('id');
+                             
+                               if(id!= delta && id.search(/Generalfree|Cabinfree|Childrenfree/)==false)
+                                   $("#"+id).hide();                                                      
+                                });
+                                
+                                $("#"+delta).text(ward.charAt(0).toUpperCase() + ward.slice(1)+"-bed :  "+result[ward]+" seats");
+                                //$("#"+delta).append(BOOK);
+                            }
+                            
+                }
+                else{
+                   
+                    $("#freebed").hide();
+                }
+                
+                   $("#confirm-BC").remove();                                   
+                   $("#resultend").show();
+                   $(".button-collapse").sideNav();
+        
+             
                     },
             error: function(jqXHR, textStatus, errorThrown){
            
@@ -141,6 +242,7 @@
 
 
 function reverter(){
+   
     /*$("#resultend").hide();
     $("#Hospital_name").val('');
     $("#Department_name").val('');
@@ -186,7 +288,7 @@ function validator(){
 
 function nextSearch(warning){
     //alert("nextsearch called");
-    
+    $("#confirmation").hide();
      if(!validator()){
          exit;
      }
@@ -204,8 +306,12 @@ function nextSearch(warning){
     
     else{
             $("#third-BC").remove();
+            $("#confirm-BC").remove();
+            
             $("#resultend").hide();
             $("#searchend").show();
+            $("#confirmation").hide();
+            
     }
         
     $("#search2").show();
@@ -216,7 +322,8 @@ function nextSearch(warning){
 
     function nextPage()
     {
-             //alert("call forwarded to nextPage()");
+        $("#confirmation").hide();     
+        //alert("call forwarded to nextPage()");
              var hosp=$("#Hospital_name").val();
              var dept=$("#Department_name").val();
              var ward=$("#Ward_name").val();

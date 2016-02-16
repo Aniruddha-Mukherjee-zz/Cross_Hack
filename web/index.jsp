@@ -21,36 +21,38 @@
 
       
       <datalist id="Hospital_list" >
-            <option value="Apollo Gleneagles Hospitals">  
-            <option value="Kolkata Medical College and Hospital">
+            <option value="Calcutta National Medical College">  
+            <option value="Medical College Kolkata">
             <option value="R.G.Kar Medical College and Hospital">
-            <option value="Calcutta Medical Research Institute">
-            <option value="Columbia Asia Hospital - Salt Lake">
+            <option value="SSKM Hospital">
+            <option value="Bangur Hospital">
             <option value="DESUN Hospital">
             <option value="Ruby General Hospital">
+            <option value="Apollo Hospital">
+            <option value="Fortis Hospital">
+            <option value="Woodland Hospital">
         </datalist> 
         
         <datalist id="Department_list" >
-            <option value= "Cardiology Institute of cardiovascular science">
-            <option value= "Anatomy">
-            <option value= "Physiology">
-            <option value= "Biochemistry">
-            <option value= "Pharmacology">
-            <option value= "Radiology">
-            <option value= "Ophthalmology">
-            <option value= "Oforhinology">
-            <option value= "Dentistry">
-            <option value= "Psychiatry">
-            <option value= "Dermatology">
-            <option value= "General Surgery">
-            <option value= "Orthopedics">
+            <option value= "Burn">
+            <option value= "Cardiology">
+            <option value= "ENT">
+            <option value= "Gastroenterology">
             <option value= "General Medicine">
-            <option value= "Chest Medicine">
+            <option value= "General Surgery">
+            <option value= "Gynaecology & Obstetrics">
+            <option value= "Ophthalmology(Eye)">
+            <option value= "Orthopaedics">
+            <option value= "Paediatrics">
+            <option value= "Psychiatry">
+            <option value= "Pulmonary Medicine">
+            <option value= "Urology">
+            
         </datalist>
 
         <datalist id="Ward_list" >
-            <option value= "Single Bed">
-            <option value= "Double Bed">
+            <option value= "Children Bed">
+            <option value= "Cabin Bed">
             <option value= "General Bed">
             <option value ="Any">
         </datalist>
@@ -103,8 +105,8 @@
       <div class="input-field col s12 teal-text">
     <select id="Ward_name">
       <option value="" disabled selected>Select Bedding Type</option>
-      <option value="Single Bed">Single Bed</option>
-      <option value="Double Bed">Double Bed</option>
+      <option value="Children Bed">Children Bed</option>
+      <option value="Cabin Bed">Cabin Bed</option>
       <option value="General Bed">General Bed</option>
       <option value="Any">Any</option>
     </select> 
@@ -125,26 +127,59 @@
    <!-- </div> -->
 </div>
   
-      
+    <div class="container" id="confirmation">      
+       <div class="row">
+        <div>
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Confirmation Box</span>
+              <p>The final decision of admission will be entirely on the relevant hospital.
+              This site provides data on availability of seats.Only provisional booking is available in.This booking is valid for the next 5 hours.</p>
+            </div>
+            <div class="card-action">
+              <a href="javascript:void(0);"  id="disagree">I DISAGREE</a>
+              <a href="javascript:void(0);" class="right" id="agree">I AGREE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
          
 
 
           
       <div class="container" id="resultend">
-          <h1 class="header center  grey-text"> Latest Updated Result</h1>
+   
+    <div class="row"><h5 class="header center  teal-text" id="hosp-result"></h5></div>
+    <div class="row"><h6 class="header center  teal-text" id="add-result"></h6></div>
+    <div class="row"><h4 class="header center  teal-text" id="dept-result"></h4></div>
     <!-- <div class="row center-align"  id="tier-1">
          <h5  class= "teal-text col s3 m4 " id="hosp-result">Hospital</h5>
          <h5  class= "teal-text col s3 m4" id="add-result">Address</h5>
          <h5  class= "teal-text col s3 m4" id="dept-result">Department</h5> 
       </div>    -->
+   <h5 class="header col s12 red-text light">Paid Bed</h5> 
     <div class="collection"  id="tier-1">
-    <a href="javascript:void(0);" target="_blank" class="collection-item" id="hosp-result">Hospital</a>
+   <!-- <a href="javascript:void(0);" target="_blank" class="collection-item" id="hosp-result">Hospital</a>
     <a href="javascript:void(0);" class="collection-item teal-text" id="add-result">Address</a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result">Department<span class="badge">1</span></a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="single-result">default</a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="double-result">default</a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="general-result">default</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result">Department<span class="badge">1</span></a> -->
+    <a href="javascript:void(0);" class="collection-item teal-text" id="Children-result">default</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="Cabin-result">default</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="General-result">default</a>
     </div>
+
+   <div id="freebed">
+    <h5 class="header col s12 red-text light">Free Bed</h5> 
+    <div class="collection" id="tier-2" >
+          
+   <!-- <a href="javascript:void(0);" target="_blank" class="collection-item" id="hosp-result">Hospital</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="add-result">Address</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result">Department<span class="badge">1</span></a> -->
+    <a href="javascript:void(0);" class="collection-item teal-text" id="Childrenfree-result">default</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="Cabinfree-result">default</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="Generalfree-result">default</a>
+    </div>
+   </div>
      <div class="row">
         <p class="grey-text right-align" id="timestamp-result"><i>Last updated: </i>.</p>
      </div>

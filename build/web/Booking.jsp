@@ -16,6 +16,9 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+   <script src="js/Booking.js"></script>  
+  
+   
 </head>
     <body>
       
@@ -29,63 +32,38 @@
   </nav> 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <br><br>
-      <h1 class="header center dark teal-text">Hospital Seat Booking</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">A brand new website to book seats of Hospital and Nursing Homes in Kolkata</h5>
-        <h6 class="header col s12 light">Rupam please do this</h5>
+      <h1 class="header center dark teal-text">Provisional Seat Booking</h1>
       </div>
+      </div>
+    <div class="container" id="rules">
+             <div class="collection"  id="tier-1">
+    <a href="javascript:void(0);" class="collection-item teal-text" id="hosp-result"></a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result"></a> 
+    <a href="javascript:void(0);" class="collection-item teal-text" id="ward-result">default</a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="available-result"></a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="gender-result"></a>
+    <a href="javascript:void(0);" class="collection-item teal-text" id="amount-result">Amount to be paid:   Rs 500</a>
+    </div>
         
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">First Name</label>
-        </div>
-          
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Last Name</label>
-        </div>
-        
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-          <label for="disabled">Disabled</label>
+         <div class="row">
+        <div>
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Terms & Conditions</span>
+              <p> 1)The decision of admission solely depends on the hospital administration authority.</p>
+              <p> 2) Provisional booking will be limited to 5 hours from the time of registration.</p>
+              <p> 3) Your booking cancellation  may induce charges.</p>
+            </div>
+            <div class="card-action">
+              
+              <a href="javascript:void(0);"  id="p2p">PROCEED TO PAYMENT</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-            <i class="material-icons prefix">settings</i>
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-         <div class="input-field col s6">
-          <i class="material-icons prefix">email</i>
-          <input id="icon_email" type="email" class="validate">
-          <label for="icon_Email">Email</label>
-        </div>
-            <div class="input-field col s6">
-          <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" class="validate">
-          <label for="icon_telephone">Telephone</label>
-        </div>
 
-      </div>
-    </form>
-  </div>
-        </div>
-      </div>
-       
-      <div class="container">
-      <br><br>    
-      </div>
-      
+    </div>
+     
       
        <footer class="page-footer white">
      <div class="footer-copyright teal">

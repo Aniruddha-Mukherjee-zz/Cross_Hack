@@ -39,18 +39,18 @@
      </div> -->            
     <div class="row centralize" id="tier-2">
      <div class="col s4 m4 centralize">
-      <p class="card-panel teal lighten-3 z-depth-3" id="single-result">default</p>
+      <p class="card-panel teal lighten-3 z-depth-3" id="Children-result">default</p>
     </div>  
      <div class="centralize col s4 m4">
-      <p class="card-panel teal lighten-3 z-depth-3" id="double-result">default</p>
+      <p class="card-panel teal lighten-3 z-depth-3" id="Cabin-result">default</p>
     </div>
     <div class="centralize col s4 m4">
-      <p class="card-panel teal lighten-3 z-depth-3" id="general-result">default</p>
+      <p class="card-panel teal lighten-3 z-depth-3" id="General-result">default</p>
     </div>  
         </div>          
          <div class="row center-block" id="tier-3" >
-         <h5  class= "grey-text col s4 m4 ">Seats available in Single Bed</h5>
-         <h5  class= "grey-text col s4 m4">Seats available in Double Bed</h5>
+         <h5  class= "grey-text col s4 m4 ">Seats available in Children Bed</h5>
+         <h5  class= "grey-text col s4 m4">Seats available in Cabin Bed</h5>
          <h5  class= "grey-text col s4 m4">Seats available in General Bed</h5> 
       </div>  
   

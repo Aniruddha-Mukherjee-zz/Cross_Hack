@@ -412,7 +412,7 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
                 </not>
             </and>
         </condition>
-        <condition else="false" property="nb.junit.single" value="true">
+        <condition else="false" property="nb.junit.Children" value="true">
             <and>
                 <istrue value="${junit.available}"/>
                 <isset property="test.method"/>
@@ -424,7 +424,7 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         <property name="test.binarytestincludes" value=""/>
         <property name="test.binaryexcludes" value=""/>
     </target>
-    <target if="${nb.junit.single}" name="-init-macrodef-junit-single" unless="${nb.junit.batch}">
+    <target if="${nb.junit.Children}" name="-init-macrodef-junit-Children" unless="${nb.junit.batch}">
         <macrodef name="junit" uri="http://www.netbeans.org/ns/web-project/2">
             <attribute default="${includes}" name="includes"/>
             <attribute default="${excludes}" name="excludes"/>
@@ -446,7 +446,7 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
             </sequential>
         </macrodef>
     </target>
-    <target depends="-init-test-properties" if="${nb.junit.batch}" name="-init-macrodef-junit-batch" unless="${nb.junit.single}">
+    <target depends="-init-test-properties" if="${nb.junit.batch}" name="-init-macrodef-junit-batch" unless="${nb.junit.Children}">
         <macrodef name="junit" uri="http://www.netbeans.org/ns/web-project/2">
             <attribute default="${includes}" name="includes"/>
             <attribute default="${excludes}" name="excludes"/>
@@ -477,7 +477,7 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
             </sequential>
         </macrodef>
     </target>
-    <target depends="-init-macrodef-junit-init,-init-macrodef-junit-single, -init-macrodef-junit-batch" if="${junit.available}" name="-init-macrodef-junit"/>
+    <target depends="-init-macrodef-junit-init,-init-macrodef-junit-Children, -init-macrodef-junit-batch" if="${junit.available}" name="-init-macrodef-junit"/>
     <target if="${testng.available}" name="-init-macrodef-testng">
         <macrodef name="testng" uri="http://www.netbeans.org/ns/web-project/2">
             <attribute default="${includes}" name="includes"/>
@@ -918,22 +918,22 @@ exists or setup the property manually. For example like this:
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target depends="init,deps-jar,-pre-pre-compile,-pre-compile,-do-compile,-post-compile" description="Compile project." name="compile"/>
-    <target name="-pre-compile-single">
+    <target name="-pre-compile-Children">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-    <target depends="init,deps-jar,-pre-pre-compile" name="-do-compile-single">
+    <target depends="init,deps-jar,-pre-pre-compile" name="-do-compile-Children">
         <fail unless="javac.includes">Must select some files in the IDE or set javac.includes</fail>
         <webproject2:javac excludes="" gensrcdir="${build.generated.sources.dir}" includes="${javac.includes}"/>
         <copy todir="${build.classes.dir}">
             <fileset dir="${src.dir}" excludes="${build.classes.excludes},${excludes}" includes="${includes}"/>
         </copy>
     </target>
-    <target name="-post-compile-single">
+    <target name="-post-compile-Children">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-    <target depends="init,deps-jar,-pre-pre-compile,-pre-compile-single,-do-compile-single,-post-compile-single" name="compile-single"/>
+    <target depends="init,deps-jar,-pre-pre-compile,-pre-compile-Children,-do-compile-Children,-post-compile-Children" name="compile-Children"/>
     <property name="jspc.schemas" value="/resources/schemas/"/>
     <property name="jspc.dtds" value="/resources/dtds/"/>
     <target depends="compile" description="Test compile JSP pages to expose compilation errors." if="do.compile.jsps" name="compile-jsps">
@@ -955,10 +955,10 @@ exists or setup the property manually. For example like this:
         <mkdir dir="${build.generated.dir}/classes"/>
         <webproject2:javac classpath="${build.classes.dir}:${libs.jsp-compilation.classpath}:${javac.classpath}:${j2ee.platform.classpath}" destdir="${build.generated.dir}/classes" srcdir="${build.generated.dir}/src"/>
     </target>
-    <target depends="compile" if="jsp.includes" name="-do-compile-single-jsp">
+    <target depends="compile" if="jsp.includes" name="-do-compile-Children-jsp">
         <fail unless="javac.jsp.includes">Must select some files in the IDE or set javac.jsp.includes</fail>
         <mkdir dir="${build.generated.dir}/src"/>
-        <java classname="org.netbeans.modules.web.project.ant.JspCSingle" failonerror="true" fork="true">
+        <java classname="org.netbeans.modules.web.project.ant.JspCChildren" failonerror="true" fork="true">
             <arg value="-uriroot"/>
             <arg file="${basedir}/${build.web.dir}"/>
             <arg value="-d"/>
@@ -981,9 +981,9 @@ exists or setup the property manually. For example like this:
             </customize>
         </webproject2:javac>
     </target>
-    <target name="compile-single-jsp">
+    <target name="compile-Children-jsp">
         <fail unless="jsp.includes">Must select a file in the IDE or set jsp.includes</fail>
-        <antcall target="-do-compile-single-jsp"/>
+        <antcall target="-do-compile-Children-jsp"/>
     </target>
     <!--
                 DIST BUILDING SECTION
@@ -1072,7 +1072,7 @@ exists or setup the property manually. For example like this:
     <target name="-run-deploy-am">
         <!-- Task to deploy to the Access Manager runtime. -->
     </target>
-    <target depends="init,-init-cos,compile,compile-jsps,-do-compile-single-jsp,-pre-dist,-do-tmp-dist-with-manifest,-do-tmp-dist-without-manifest,-pre-run-deploy,-pre-nbmodule-run-deploy,-run-deploy-nb,-init-deploy-ant,-deploy-ant,-run-deploy-am,-post-nbmodule-run-deploy,-post-run-deploy,-do-update-breakpoints" name="run-deploy"/>
+    <target depends="init,-init-cos,compile,compile-jsps,-do-compile-Children-jsp,-pre-dist,-do-tmp-dist-with-manifest,-do-tmp-dist-without-manifest,-pre-run-deploy,-pre-nbmodule-run-deploy,-run-deploy-nb,-init-deploy-ant,-deploy-ant,-run-deploy-am,-post-nbmodule-run-deploy,-post-run-deploy,-do-update-breakpoints" name="run-deploy"/>
     <target if="netbeans.home" name="-run-deploy-nb">
         <nbdeploy clientUrlPart="${client.urlPart}" debugmode="false" forceRedeploy="${forceRedeploy}"/>
     </target>
@@ -1164,11 +1164,11 @@ exists or setup the property manually. For example like this:
             <arg line="${browser.args} ${browse.url}"/>
         </exec>
     </target>
-    <target depends="init,-init-cos,compile-single" name="run-main">
+    <target depends="init,-init-cos,compile-Children" name="run-main">
         <fail unless="run.class">Must select one file in the IDE or set run.class</fail>
         <webproject1:java classname="${run.class}"/>
     </target>
-    <target depends="init,compile-test-single,-pre-test-run-single" name="run-test-with-main">
+    <target depends="init,compile-test-Children,-pre-test-run-Children" name="run-test-with-main">
         <fail unless="run.class">Must select one file in the IDE or set run.class</fail>
         <webproject1:java classname="${run.class}" classpath="${run.test.classpath}"/>
     </target>
@@ -1178,7 +1178,7 @@ exists or setup the property manually. For example like this:
     <!--
                 DEBUGGING SECTION
             -->
-    <target depends="init,-init-cos,compile,compile-jsps,-do-compile-single-jsp,-pre-dist,-do-tmp-dist-with-manifest,-do-tmp-dist-without-manifest" description="Debug project in IDE." if="netbeans.home" name="debug">
+    <target depends="init,-init-cos,compile,compile-jsps,-do-compile-Children-jsp,-pre-dist,-do-tmp-dist-with-manifest,-do-tmp-dist-without-manifest" description="Debug project in IDE." if="netbeans.home" name="debug">
         <nbstartserver debugmode="true"/>
         <antcall target="connect-debugger"/>
         <nbdeploy clientUrlPart="${client.urlPart}" debugmode="true" forceRedeploy="true"/>
@@ -1208,28 +1208,28 @@ exists or setup the property manually. For example like this:
     <target if="do.debug.client" name="connect-client-debugger">
         <webproject1:nbjsdebugstart webUrl="${client.url}"/>
     </target>
-    <target depends="init,compile-test-single" if="netbeans.home" name="-debug-start-debuggee-main-test">
+    <target depends="init,compile-test-Children" if="netbeans.home" name="-debug-start-debuggee-main-test">
         <fail unless="debug.class">Must select one file in the IDE or set debug.class</fail>
         <webproject1:debug classname="${debug.class}" classpath="${debug.test.classpath}"/>
     </target>
-    <target depends="init,compile-test-single,-debug-start-debugger-main-test,-debug-start-debuggee-main-test" if="netbeans.home" name="debug-test-with-main"/>
-    <target depends="init,compile,compile-jsps,-do-compile-single-jsp,debug" if="netbeans.home" name="debug-single"/>
+    <target depends="init,compile-test-Children,-debug-start-debugger-main-test,-debug-start-debuggee-main-test" if="netbeans.home" name="debug-test-with-main"/>
+    <target depends="init,compile,compile-jsps,-do-compile-Children-jsp,debug" if="netbeans.home" name="debug-Children"/>
     <target depends="init" if="netbeans.home" name="-debug-start-debugger-main-test">
         <webproject1:nbjpdastart classpath="${debug.test.classpath}" name="${debug.class}"/>
     </target>
     <target depends="init" if="netbeans.home" name="-debug-start-debugger">
         <webproject1:nbjpdastart name="${debug.class}"/>
     </target>
-    <target depends="init,compile-single" if="netbeans.home" name="-debug-start-debuggee-single">
+    <target depends="init,compile-Children" if="netbeans.home" name="-debug-start-debuggee-Children">
         <fail unless="debug.class">Must select one file in the IDE or set debug.class</fail>
         <webproject1:debug classname="${debug.class}"/>
     </target>
-    <target depends="init,compile-single,-debug-start-debugger,-debug-start-debuggee-single" if="netbeans.home" name="debug-single-main"/>
+    <target depends="init,compile-Children,-debug-start-debugger,-debug-start-debuggee-Children" if="netbeans.home" name="debug-Children-main"/>
     <target depends="init" name="-pre-debug-fix">
         <fail unless="fix.includes">Must set fix.includes</fail>
         <property name="javac.includes" value="${fix.includes}.java"/>
     </target>
-    <target depends="init,-pre-debug-fix,compile-single" if="netbeans.home" name="-do-debug-fix">
+    <target depends="init,-pre-debug-fix,compile-Children" if="netbeans.home" name="-do-debug-fix">
         <webproject1:nbjpdareload/>
     </target>
     <target depends="init,-pre-debug-fix,-do-debug-fix" if="netbeans.home" name="debug-fix"/>
@@ -1262,7 +1262,7 @@ exists or setup the property manually. For example like this:
             <jvmarg value="${profiler.j2ee.agentID}"/>
         </nbstartprofiledserver>
     </target>
-    <target depends="profile-init,compile-test-single" if="profiler.info.jvmargs.agent" name="-profile-test-single-pre72">
+    <target depends="profile-init,compile-test-Children" if="profiler.info.jvmargs.agent" name="-profile-test-Children-pre72">
         <fail unless="netbeans.home">This target only works when run from inside the NetBeans IDE.</fail>
         <nbprofiledirect>
             <classpath>
@@ -1295,7 +1295,7 @@ exists or setup the property manually. For example like this:
             </or>
         </condition>
     </target>
-    <target depends="init,-init-cos,compile,compile-jsps,-do-compile-single-jsp,-pre-dist,-do-tmp-dist-with-manifest,-do-tmp-dist-without-manifest" name="-do-profile">
+    <target depends="init,-init-cos,compile,compile-jsps,-do-compile-Children-jsp,-pre-dist,-do-tmp-dist-with-manifest,-do-tmp-dist-without-manifest" name="-do-profile">
         <startprofiler/>
         <nbstartserver profilemode="true"/>
         <nbdeploy clientUrlPart="${client.urlPart}" forceRedeploy="true" profilemode="true"/>
@@ -1306,10 +1306,10 @@ exists or setup the property manually. For example like this:
     <target depends="-profile-check,-profile-pre72" description="Profile a J2EE project in the IDE." if="profiler.configured" name="profile" unless="profiler.info.jvmargs.agent">
         <antcall target="-do-profile"/>
     </target>
-    <target depends="-profile-test-single-pre72" name="profile-test-single"/>
+    <target depends="-profile-test-Children-pre72" name="profile-test-Children"/>
     <target depends="-profile-check" if="profiler.configured" name="profile-test" unless="profiler.info.jvmargs.agent">
         <startprofiler/>
-        <antcall target="test-single"/>
+        <antcall target="test-Children"/>
     </target>
     <target if="profiler.loadgen.path" name="-profile-start-loadgen">
         <loadgenstart path="${profiler.loadgen.path}"/>
@@ -1366,22 +1366,22 @@ exists or setup the property manually. For example like this:
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target depends="init,compile,-pre-pre-compile-test,-pre-compile-test,-do-compile-test,-post-compile-test" name="compile-test"/>
-    <target name="-pre-compile-test-single">
+    <target name="-pre-compile-test-Children">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-    <target depends="init,compile,-pre-pre-compile-test,-pre-compile-test-single" if="have.tests" name="-do-compile-test-single">
+    <target depends="init,compile,-pre-pre-compile-test,-pre-compile-test-Children" if="have.tests" name="-do-compile-test-Children">
         <fail unless="javac.includes">Must select some files in the IDE or set javac.includes</fail>
         <webproject2:javac classpath="${javac.test.classpath}:${j2ee.platform.classpath}:${j2ee.platform.embeddableejb.classpath}" debug="true" destdir="${build.test.classes.dir}" excludes="" includes="${javac.includes}" srcdir="${test.src.dir}"/>
         <copy todir="${build.test.classes.dir}">
             <fileset dir="${test.src.dir}" excludes="${build.classes.excludes},${excludes}" includes="${includes}"/>
         </copy>
     </target>
-    <target name="-post-compile-test-single">
+    <target name="-post-compile-test-Children">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-    <target depends="init,compile,-pre-pre-compile-test,-pre-compile-test-single,-do-compile-test-single,-post-compile-test-single" name="compile-test-single"/>
+    <target depends="init,compile,-pre-pre-compile-test,-pre-compile-test-Children,-do-compile-test-Children,-post-compile-test-Children" name="compile-test-Children"/>
     <!--
                 
                 TEST EXECUTION SECTION
@@ -1398,35 +1398,35 @@ exists or setup the property manually. For example like this:
     <target depends="init" if="have.tests" name="test-report"/>
     <target depends="init" if="netbeans.home+have.tests" name="-test-browse"/>
     <target depends="init,compile-test,-pre-test-run,-do-test-run,test-report,-post-test-run,-test-browse" description="Run unit tests." name="test"/>
-    <target depends="init" if="have.tests" name="-pre-test-run-single">
+    <target depends="init" if="have.tests" name="-pre-test-run-Children">
         <mkdir dir="${build.test.results.dir}"/>
     </target>
-    <target depends="init,compile-test-single,-pre-test-run-single" if="have.tests" name="-do-test-run-single">
+    <target depends="init,compile-test-Children,-pre-test-run-Children" if="have.tests" name="-do-test-run-Children">
         <fail unless="test.includes">Must select some files in the IDE or set test.includes</fail>
         <webproject2:test excludes="" includes="${test.includes}" testincludes="${test.includes}"/>
     </target>
-    <target depends="init,compile-test-single,-pre-test-run-single,-do-test-run-single" if="have.tests" name="-post-test-run-single">
+    <target depends="init,compile-test-Children,-pre-test-run-Children,-do-test-run-Children" if="have.tests" name="-post-test-run-Children">
         <fail if="tests.failed" unless="ignore.failing.tests">Some tests failed; see details above.</fail>
     </target>
-    <target depends="init,compile-test-single,-pre-test-run-single,-do-test-run-single,-post-test-run-single" description="Run single unit test." name="test-single"/>
-    <target depends="init,compile-test-single,-pre-test-run-single" if="have.tests" name="-do-test-run-single-method">
+    <target depends="init,compile-test-Children,-pre-test-run-Children,-do-test-run-Children,-post-test-run-Children" description="Run Children unit test." name="test-Children"/>
+    <target depends="init,compile-test-Children,-pre-test-run-Children" if="have.tests" name="-do-test-run-Children-method">
         <fail unless="test.class">Must select some files in the IDE or set test.class</fail>
         <fail unless="test.method">Must select some method in the IDE or set test.method</fail>
         <webproject2:test excludes="" includes="${javac.includes}" testincludes="${test.class}" testmethods="${test.method}"/>
     </target>
-    <target depends="init,compile-test-single,-pre-test-run-single,-do-test-run-single-method" if="have.tests" name="-post-test-run-single-method">
+    <target depends="init,compile-test-Children,-pre-test-run-Children,-do-test-run-Children-method" if="have.tests" name="-post-test-run-Children-method">
         <fail if="tests.failed" unless="ignore.failing.tests">Some tests failed; see details above.</fail>
     </target>
-    <target depends="init,compile-test-single,-pre-test-run-single,-do-test-run-single-method,-post-test-run-single-method" description="Run single unit test." name="test-single-method"/>
+    <target depends="init,compile-test-Children,-pre-test-run-Children,-do-test-run-Children-method,-post-test-run-Children-method" description="Run Children unit test." name="test-Children-method"/>
     <!--
                 
                 TEST DEBUGGING SECTION
             -->
-    <target depends="init,compile-test-single,-pre-test-run-single" if="have.tests" name="-debug-start-debuggee-test">
+    <target depends="init,compile-test-Children,-pre-test-run-Children" if="have.tests" name="-debug-start-debuggee-test">
         <fail unless="test.class">Must select one file in the IDE or set test.class</fail>
         <webproject2:test-debug excludes="" includes="${javac.includes}" testClass="${test.class}" testincludes="${javac.includes}"/>
     </target>
-    <target depends="init,compile-test-single,-pre-test-run-single" if="have.tests" name="-debug-start-debuggee-test-method">
+    <target depends="init,compile-test-Children,-pre-test-run-Children" if="have.tests" name="-debug-start-debuggee-test-method">
         <fail unless="test.class">Must select one file in the IDE or set test.class</fail>
         <fail unless="test.method">Must select some method in the IDE or set test.method</fail>
         <webproject2:test-debug excludes="" includes="${javac.includes}" testClass="${test.class}" testMethod="${test.method}" testincludes="${test.class}" testmethods="${test.method}"/>
@@ -1435,8 +1435,8 @@ exists or setup the property manually. For example like this:
         <webproject1:nbjpdastart classpath="${debug.test.classpath}" name="${test.class}"/>
     </target>
     <target depends="init,compile-test,-debug-start-debugger-test,-debug-start-debuggee-test" name="debug-test"/>
-    <target depends="init,compile-test-single,-debug-start-debugger-test,-debug-start-debuggee-test-method" name="debug-test-method"/>
-    <target depends="init,-pre-debug-fix,compile-test-single" if="netbeans.home" name="-do-debug-fix-test">
+    <target depends="init,compile-test-Children,-debug-start-debugger-test,-debug-start-debuggee-test-method" name="debug-test-method"/>
+    <target depends="init,-pre-debug-fix,compile-test-Children" if="netbeans.home" name="-do-debug-fix-test">
         <webproject1:nbjpdareload dir="${build.test.classes.dir}"/>
     </target>
     <target depends="init,-pre-debug-fix,-do-debug-fix-test" if="netbeans.home" name="debug-fix-test"/>

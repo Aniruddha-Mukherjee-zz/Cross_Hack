@@ -29,10 +29,10 @@ public class Handler {
      public JSONObject respond(){
           JSONObject obj =new JSONObject();
           
-            Boolean status=true;
+            Boolean status=false; //hospital seat
             String address=" 88, College Street, Chittaranjan Avenue, Kolkata, West Bengal 700073";
             String link= "http://www.medicalcollegekolkata.org/";
-            int singlebed=-1,doublebed=-1,generalbed=-1;
+            int Childrenbed=-1,Cabinbed=-1,Generalbed=-1;
             
             String timestamp= new SimpleDateFormat("dd/MM/YY HH:mm:ss").format(new Date());
             
@@ -42,17 +42,17 @@ public class Handler {
               obj.put("timestamp",timestamp);
               
               if(ward.equals("Any")){
-                  obj.put("single",singlebed );
-                  obj.put("double",doublebed);
-                  obj.put("general", generalbed);
+                  obj.put("Children",Childrenbed );
+                  obj.put("Cabin",Cabinbed);
+                  obj.put("General", Generalbed);
               }
               
-              else if(ward.equals("Single Bed"))
-                       obj.put("single",singlebed );
-              else  if(ward.equals("Double Bed"))
-                    obj.put("double",doublebed);
+              else if(ward.equals("Children Bed"))
+                       obj.put("Children",Childrenbed );
+              else  if(ward.equals("Cabin Bed"))
+                    obj.put("Cabin",Cabinbed);
               else  if(ward.equals("General Bed"))
-                    obj.put("general", generalbed);
+                    obj.put("General", Generalbed);
                         
           return obj;
      }

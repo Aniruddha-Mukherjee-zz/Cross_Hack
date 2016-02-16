@@ -20,12 +20,12 @@
       -post-init:                called after initialization of project properties 
       -pre-compile:              called before javac compilation 
       -post-compile:             called after javac compilation 
-      -pre-compile-single:       called before javac compilation of single file
-      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-Children:       called before javac compilation of Children file
+      -post-compile-Children:      called after javac compilation of Children file
       -pre-compile-test:         called before javac compilation of JUnit tests
       -post-compile-test:        called after javac compilation of JUnit tests
-      -pre-compile-test-single:  called before javac compilation of single JUnit test
-      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-compile-test-Children:  called before javac compilation of Children JUnit test
+      -post-compile-test-Children: called after javac compilation of Children JUunit test
       -pre-dist:                 called before archive building 
       -post-dist:                called after archive building 
       -post-clean:               called after cleaning build products 
