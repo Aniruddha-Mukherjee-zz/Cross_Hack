@@ -273,11 +273,11 @@
           <h5 class="white-text">CONTACT US</h5>
           <ul>
 <li><a class="white-text" href="https://www.facebook.com/aniruddha.mukherjee1" target="_blank" style="target-new: tab;">Aniruddha Mukherjee</a></li>
-<li><a class="white-text" href="https://www.facebook.com/arpan.rulzdehert" target="_blank" style="target-new: tab;">Arpan Das</a></li>
 <li><a class="white-text" href="https://www.facebook.com/rupam.sarkar.9" target="_blank" style="target-new: tab;">Rupam Sarkar</a></li>
+<!-- <li><a class="white-text" href="https://www.facebook.com/arpan.rulzdehert" target="_blank" style="target-new: tab;">Arpan Das</a></li>
 <li><a class="white-text" href="https://www.facebook.com/RHEIJU" target="_blank" style="target-new: tab;">Saumyarup Pal</a></li>
 <li><a class="white-text" href="https://www.facebook.com/fuyu.yu.9" target="_blank" style="target-new: tab;">Yu Fu Yu</a></li>
-
+-->
           </ul>
         </div>
       </div>
