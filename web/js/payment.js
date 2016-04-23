@@ -30,11 +30,11 @@ $(document).ready(function(){
     var parameter=str[1];
       
       //var number=$("#number").text();
-      var number=$("[name='number']").val();
+      var number=$("[name='phnumber']").val();
       
       
       
-      var name=$("[name='first-name']").val()+$("[name='last-name']").val();
+      var name=$("[name='first-name']").val()+" "+$("[name='last-name']").val();
       var address=$("[name='streetaddress']").val();
       
       //alert(number+name+address);
@@ -43,7 +43,7 @@ $(document).ready(function(){
       
       parameter=parameter+"&name="+name+"&number="+number+"&address="+address;
       
-      alert(parameter);
+      //alert(parameter);
       
       //window.close();
         window.open("Receipt.jsp?"+parameter,"_self");

@@ -43,7 +43,10 @@
         }
     
     else if(arg=== "yes"){
-        redirector();        
+             $("#resultend").show();
+            $("#confirmation").hide();
+            $("#confirm-BC").remove();
+            redirector();        
     }
     
     else if(arg=== "no"){
@@ -57,7 +60,7 @@
         
         //if(ward ==="Children")
         {
-            alert("You Will Be Redirected Now");
+            //alert("You Will Be Redirected Now");
             var hosp=$("#Hospital_name").val();
              var dept=$("#Department_name").val();
              var gender=$("#Gender").val();
@@ -107,10 +110,11 @@
      $("#navigator").append(third);  
                     
                 var timeDiff=(new Date().getTime()-start_time)/1000;          
-                              alert("Server Side Delay= "+timeDiff+" sec"); 
+                              //alert("Server Side Delay= "+timeDiff+" sec"); 
                              $("#hosp-result").text(unescape(hosp));
                              $("#dept-result").text(unescape(dept)+" Department");
-                             $("#add-result").text(unescape(result['address']));
+                             //$("#add-result").text(unescape(result['address']));
+                            // $("#add-result").hide();
                              $("#hosp-result").attr("href",(unescape(result['link'])));
                             // $("#link-result").text(unescape(hosp+" website"));
                          $("#timestamp-result").text("Last Updated : "+result['timestamp']);

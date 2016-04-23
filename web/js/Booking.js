@@ -11,7 +11,7 @@ $(document).ready(function(){
     
     $("#p2p").click(function(){
         //$("#rules").hide();
-        alert("redirecting");
+        //alert("redirecting");
         window.open("payment.jsp?"+parameter,"_self")
     });
 });

@@ -36,24 +36,29 @@
       </div>
       </div>
     <div class="container" id="rules">
-             <div class="collection"  id="tier-1">
-    <a href="javascript:void(0);" class="collection-item teal-text" id="-result"></a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="dept-result"></a> 
-    <a href="javascript:void(0);" class="collection-item teal-text" id="ward-result">default</a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="available-result"></a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="gender-result"></a>
-    <a href="javascript:void(0);" class="collection-item teal-text" id="amount-result">Amount to be paid:   Rs 500</a>
-    </div>
+            <ul class="collection">
+      <li class="collection-item" id="patient-name">Alvin</li>
+      <li class="collection-item" id="patient-number">Alvin</li>
+      <li class="collection-item"id="hosp-result">Alvin</li>
+      <li class="collection-item" id="dept-result">Alvin</li>
+      <li class="collection-item" id="ward-result">Alvin</li>
+      <li class="collection-item" id="gender-result">Alvin</li>
+      <li class="collection-item" >Booking Status:  Confirmed</li>
+      <li class="collection-item" >Amount Paid:  Rs.500</li>
+      <li class="collection-item" >Booking Number:  HDWG 200 201 2257 </li>
+      
+    </ul>
         
          <div class="row">
-        <div>
+        <div
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Please bring a print out of this receipt with you</span>
+                <span class="card-title">An SMS has been sent to your Mobile number.
+                    Please produce that SMS to OPD/Emergency counter for your convenience without which locking facility will not be entertained.</span>
             </div>
             <div class="card-action">
               
-              <a href="javascript:void(0);"  id="p2p">PROCEED TO PAYMENT</a>
+              <a href="javascript:close_window();"  id="p2p">OK</a>
             </div>
           </div>
         </div>
@@ -61,34 +66,6 @@
 
     </div>
      
-        <table>
-        <thead>
-          <tr>
-              <th data-field="id">Name</th>
-              <th data-field="name">Item Name</th>
-              <th data-field="price">Item Price</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-          </tr>
-        </tbody>
-      </table>
-        
         
       
        <footer class="page-footer white">

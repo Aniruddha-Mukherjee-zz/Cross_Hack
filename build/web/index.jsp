@@ -77,7 +77,7 @@
 
      
    <nav class="row">
-    <div class="nav-wrapper">
+    <div class="nav-wrapper blue-grey darken-1">
       <div class="col s12 " id="navigator">
         <a href="javascript:void(0);" class="breadcrumb" id="first-BC">Step 1</a>
       </div>
@@ -131,10 +131,16 @@
        <div class="row">
         <div>
           <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
+            <!-- <div class="card-content white-text">
               <span class="card-title">Confirmation Box</span>
               <p>The final decision of admission will be entirely on the relevant hospital.
               This site provides data on availability of seats.Only provisional booking is available in.This booking is valid for the next 5 hours.</p>
+            </div> -->
+            <div class="card-content white-text">
+              <span class="card-title">Terms & Conditions</span>
+              <p>The decision of admission solely depends on the hospital administration authority.</p>
+              <p>This site provides data on availability of seats.</p>
+              <p>Only provisional booking is available which is valid for the next 5 hours.</p>
             </div>
             <div class="card-action">
               <a href="javascript:void(0);"  id="disagree">I DISAGREE</a>
@@ -151,7 +157,7 @@
       <div class="container" id="resultend">
    
     <div class="row"><h5 class="header center  teal-text" id="hosp-result"></h5></div>
-    <div class="row"><h6 class="header center  teal-text" id="add-result"></h6></div>
+  <!--  <div class="row"><h6 class="header center  teal-text" id="add-result"></h6></div> -->
     <div class="row"><h4 class="header center  teal-text" id="dept-result"></h4></div>
     <!-- <div class="row center-align"  id="tier-1">
          <h5  class= "teal-text col s3 m4 " id="hosp-result">Hospital</h5>
@@ -270,6 +276,8 @@
 <li><a class="white-text" href="https://www.facebook.com/arpan.rulzdehert" target="_blank" style="target-new: tab;">Arpan Das</a></li>
 <li><a class="white-text" href="https://www.facebook.com/rupam.sarkar.9" target="_blank" style="target-new: tab;">Rupam Sarkar</a></li>
 <li><a class="white-text" href="https://www.facebook.com/RHEIJU" target="_blank" style="target-new: tab;">Saumyarup Pal</a></li>
+<li><a class="white-text" href="https://www.facebook.com/fuyu.yu.9" target="_blank" style="target-new: tab;">Yu Fu Yu</a></li>
+
           </ul>
         </div>
       </div>

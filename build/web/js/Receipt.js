@@ -31,18 +31,22 @@ function GetURLParameter(sParam)
 
 function content_creator()
 {
-    alert("Receipt.jsp");
-    var name=GetURLParameter("first-name")+GetURLParameter("last-name");
-    var number=GetURLParameter("number");
+    //alert("Receipt.jsp");
+    var name=GetURLParameter("name");
+    var number=unescape(GetURLParameter("number"));
+    var hosp=unescape(GetURLParameter("hosp"));
+    var dept=unescape(GetURLParameter("dept"));
+    var ward=GetURLParameter("ward");
+    var gender=GetURLParameter("gender");
+    //alert(hosp+dept+gender+ward+name+number);
     
-    //alert(hosp+dept+gender+ward);
     
-    
-    $("#hosp-result").text("Hospital:   " +unescape(hosp));
-    $("#dept-result").text("Department: "+ unescape(dept));
-    $("#ward-result").text("Bed Type:   "+ unescape(ward));
-    $("#gender-result").text("Gender:   "+ gender);
-    $("#available-result").text("Seat Available");
-    
+    $("#patient-name").text("Patient Name:      " +unescape(name));
+    $("#patient-number").text("Contact Number:      "+(number));
+    $("#gender-result").text("Patient Gender:   "+gender);
+    $("#hosp-result").text("Hospital Name:      "+(hosp));
+    $("#dept-result").text("Department Name:    "+(dept));
+    $("#ward-result").text("Bedding  Type:      "+(ward));
+   
             
 }

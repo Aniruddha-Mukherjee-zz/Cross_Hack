@@ -2,12 +2,8 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Payment Site</title>
-          
-    
-        <link rel="stylesheet" href="css/payment.css">  
-    
-    
+    <title>Payment Site</title>   
+        <link rel="stylesheet" href="css/payment.css">      
   </head>
 
   <body>
@@ -22,9 +18,9 @@
 
       <input id="column-left" type="text" name="city" required="required" autocomplete="on" maxlength="20" placeholder="City"/>
 
-      <input id="column-right" type="text" name="zipcode" required="required" autocomplete="on" pattern="[0-9]*" maxlength="5" placeholder="ZIP code"/>
+      <input id="column-right" type="text" name="zipcode" required="required" autocomplete="on" pattern="[0-9]*" maxlength="6" placeholder="ZIP code"/>
       
-      <input id="number" type="text" name="number" required="required" autocomplete="off" maxlength="10" placeholder="Phone"/>
+      <input id="input-field" type="text" name="phnumber"   maxlength="10" placeholder="Phone"/>
       
     <div class="card-wrapper"></div>
       <input id="column-left" type="text" name="first-name" placeholder="First Name"/>
@@ -35,7 +31,7 @@
      
       <input id="column-left" type="text" name="expiry" placeholder="MM / YY"/>
         
-      <input id="column-right" type="text" name="cvc" placeholder="CCV"/>
+      <input id="column-right" type="text" name="cvc" maxlength="3" placeholder="CCV"/>
     
       <input id="submit" type="submit" value="Submit"/>
     </form>
